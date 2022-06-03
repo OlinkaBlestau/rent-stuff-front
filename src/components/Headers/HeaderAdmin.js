@@ -40,7 +40,7 @@ const HeaderAdmin = () => {
                         <Form className="d-flex">
                             <div className={styles.links}>
                                 <Link to={'/user/home/' + id}>Главная</Link>
-                                <a href={"/adminAnnouncement"}>Оголошення</a>
+                                <a href={"/"}>Оголошення</a>
                                 <div className={styles.droplist}>
                                     <div className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" style={dropA} href="#" id="navbarDropdown" role="button"
