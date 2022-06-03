@@ -1,0 +1,62 @@
+.wrapper{
+
+    margin: 25px auto;
+    max-width: 650px;
+    padding: 40px 20px;
+    background:#E3DBDA;
+    border-radius: 15px;
+    position: relative;
+    text-shadow: none;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+}
+
+.wrapper h1{
+    text-align: center;
+    font-family: 'Rubik', sans-serif;;
+    margin-bottom: 43px;
+}
+
+.elementsRight input{
+    width: 500px;
+    margin: 20px -50px;
+    font-size: 21px;
+}
+
+.price input{
+    width: 200px;
+    margin: 0 -50px;
+    font-size: 21px;
+}
+
+.description textarea{
+    width: 550px;
+    height: 150px;
+    margin: 25px 29px 0;
+    font-size: 21px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 100;
+}
+.category p{
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    font-size: 20px;
+    top: 25px;
+    margin: -12px 55px 35px;
+}
+.radioButton label{
+    position: relative;
+    left: 70px;
+
+}
+.btn {
+    margin-top: 15px;
+    position:relative;
+    margin-left:195px;
+    width: 40%;
+    height: 45px;
+    font-family: 'Palanquin Dark', sans-serif;
+    font-size: 24px;
+    border-radius:3px;
+    background-color: #C7B9B7;
+    border: none;
+}

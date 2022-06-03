@@ -7,11 +7,12 @@ import Registration from "./components/Auth/Registration";
 import ChangeUser from "./components/User/ChangeUser";
 import ProfileUser from "./components/User/ProfileUser";
 import ProfileAdmin from "./components/Admin/ProfileAdmin";
-import CreateShelter from "./components/Admin/CreateShelter";
-import CreateAnimal from "./components/Admin/CreateAnimal";
 import CreateAnnouncement from "./components/Admin/CreateAnnouncement";
 import HeaderAdmin from "./components/Headers/HeaderAdmin";
 import HeaderUser from "./components/Headers/HeaderUser";
+import Home from "./components/Home/Home";
+import Announcement from "./components/Admin/Announcement";
+import CreateShop from "./components/Admin/CreateShop";
 
 
 function App() {
@@ -27,26 +28,50 @@ function App() {
 
     }, [])
 
+
     return (
         <div>
             {
                 storage === null && role !== undefined
                     ? <Header/>
-                    : (role === 'true' ? <HeaderAdmin/> : <HeaderUser/>)
+                    : (role === 'admin' ? <HeaderAdmin/> : <HeaderUser/>)
             }
             <Routes>
-                <Route path="/changeUser/:id" element={
+                <Route path="/changeUser/" element={
                     storage === null
                         ? <Authorization/>
                         : <ChangeUser/>
                 }/>
+
+                <Route path="/profileUser/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <ProfileUser/>
+                }/>
+
+                <Route path="/createAnnouncement/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <CreateAnnouncement/>
+                }/>
+
+                <Route path="/createShop/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <CreateShop/>
+                }/>
+
+                <Route path="/adminAnnouncement/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <Announcement/>
+                }/>
+
+                <Route path='/' element={<Home/>}/>
+
                 <Route path='/login' element={<Authorization/>}/>
                 <Route path='/register' element={<Registration/>}/>
-                <Route path='/profileUser' element={<ProfileUser/>}/>
                 <Route path='/profileAdmin' element={<ProfileAdmin/>}/>
-                <Route path='/createShelter' element={<CreateShelter/>}/>
-                <Route path='/createAnimal' element={<CreateAnimal/>}/>
-                <Route path='/createAnnouncement' element={<CreateAnnouncement/>}/>
             </Routes>
         </div>
     );

@@ -1,43 +1,53 @@
 .wrapper {
-    background-color: red;
+    background-color: #C7B9B7;
     max-width: 100%;
     padding: 10px;
     height: 100px;
 }
 
-.search {
-    max-width: 150px;
-    border-radius: 50px;
-    margin-right: 5px;
-}
-
-.searchButton {
-    height: 40px;
-    max-width: 100px;
-    border-radius: 30px;
+.logo {
+    font-family: 'Palanquin Dark', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    margin-left:20px;
 }
 
 .links {
-    font-size: 18px;
-    margin-top: 8px;
-    margin-left: 10px;
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-left: 40px;
     display: flex;
+}
+.droplist a:hover{
+    color: #422030;
+}
+
+
+.droplist a{
+    font-size: 30px;
+    color: #000;
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+
+}
+
+.droplist ul
+{
+    min-width: 20px;
 }
 
 .links a {
-    color: #000;
-    text-transform: uppercase;
+    font-family: 'Poiret One', cursive;
+    font-size: 28px;
+    font-weight: 400;
+    margin-right:75px;
     text-decoration: none;
-    margin-right: 20px;
+    color: black;
 }
 
 .links a:hover {
     text-decoration: underline;
-}
-
-.logo {
-    margin-top: -5px;
-    font-size: 25px;
+    color: #422030;
 }
 
 Form {

@@ -20,13 +20,13 @@ class ChangeUser extends Component {
     }
 
     componentDidMount() {
-        const {id} = this.props.params;
+        let id = localStorage.getItem('id')
 
         this.setState({id: id})
         let store = localStorage.getItem('authToken')
 
         fetchUser(id, store).then(resolve => {
-            this.setState({user: resolve.data.data})
+            this.setState({user: resolve.data[0]})
         });
 
     }
@@ -70,16 +70,16 @@ class ChangeUser extends Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <h1>Измените данные о себе для изменения </h1>
+                <h1>Зміна пересональних даних</h1>
                 <form onSubmit={this.submit} encType="multipart/form-data">
                     <div>
                         <div>
                             <div className="name">
-                                <input name='name'
+                                <input className={styles.input} name='name'
                                        id='name'
                                        type="text"
                                        value={(this.state.user === undefined) ? '' : this.state.user.name}
-                                       placeholder="Имя"
+                                       placeholder="Ім'я"
                                        onClick={(item) => {
                                            this.handleChanges("name", item)
                                        }}
@@ -87,11 +87,11 @@ class ChangeUser extends Component {
                                            this.handleChanges("name", item)
                                        }}
                                 />
-                                <input name='surname'
+                                <input className={styles.input} name='surname'
                                        id='surname'
                                        type="text"
                                        value={(this.state.user === undefined) ? '' : this.state.user.surname}
-                                       placeholder=" Фамилия"
+                                       placeholder="Прізвище"
                                        onClick={(item) => {
                                            this.handleChanges("surname", item)
                                        }}
@@ -99,11 +99,11 @@ class ChangeUser extends Component {
                                            this.handleChanges("surname", item)
                                        }}
                                 />
-                                <input name='email'
+                                <input className={styles.input} name='email'
                                        id='email'
                                        type="text"
                                        value={(this.state.user === undefined) ? '' : this.state.user.email}
-                                       placeholder="Електронная почта"
+                                       placeholder="e-mail"
                                        onClick={(item) => {
                                            this.handleChanges("email", item)
                                        }}
@@ -111,7 +111,7 @@ class ChangeUser extends Component {
                                            this.handleChanges("email", item)
                                        }}
                                 />
-                                <input name='phone'
+                                <input className={styles.input} name='phone'
                                        id='phone'
                                        type="text"
                                        value={(this.state.user === undefined) ? '' : this.state.user.phone}
@@ -123,7 +123,7 @@ class ChangeUser extends Component {
                                            this.handleChanges("phone", item)
                                        }}
                                 />
-                                <input name='password'
+                                <input className={styles.input} name='password'
                                        id='password'
                                        type="text"
                                        value={this.state.password}
@@ -135,7 +135,7 @@ class ChangeUser extends Component {
                         </div>
                     </div>
                     <button className={styles.btn}>
-                        <a href={`/profile/` + this.state.id}>Изменить</a>
+                        Зберігти
                     </button>
                 </form>
             </div>

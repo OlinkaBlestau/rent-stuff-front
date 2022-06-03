@@ -20,11 +20,16 @@ const HeaderAdmin = () => {
         setId(store)
     }, [])
 
+    const dropA = {
+        position: 'relative',
+        top: '-10px',
+    }
+
     return (
         <div className={styles.wrapper}>
             <Navbar bg="#FFE552" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand className={styles.logo} href="#">СinemaWorld</Navbar.Brand>
+                    <nav className={styles.logo} href="#">RentStuff</nav>
                     <Navbar.Toggle aria-controls="navbarScroll"/>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -34,22 +39,25 @@ const HeaderAdmin = () => {
                         </Nav>
                         <Form className="d-flex">
                             <div className={styles.links}>
-                                <Link to={'/admin/home/' + id}>Главная</Link>
-                                <a href={"/changeUser"}>Изменить профиль</a>
-                                <a href={"/profileAdmin"}>Профиль(админ)</a>
-                                <a href={"/createShelter"}>Створити притулок</a>
-                                <a href={"/createAnimal"}>Нова тваринка</a>
-                                <a href={"/createAnnouncement"}>Нова об'ява</a>
-                                <button  className={styles.exitButton} onClick={exit}>Выход</button>
+                                <Link to={'/user/home/' + id}>Главная</Link>
+                                <a href={"/adminAnnouncement"}>Оголошення</a>
+                                <div className={styles.droplist}>
+                                    <div className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" style={dropA} href="#" id="navbarDropdown" role="button"
+                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                            Профіль
+                                        </a>
+                                        <ul className="dropdown-menu" id = "lang" aria-labelledby="navbarDropdown">
+                                            <li><a className="dropdown-item" href={"/profileAdmin"}>Мій профіль</a></li>
+                                            <li><a className="dropdown-item" href={"/adminAnnouncement"}>Мої оголошення</a></li>
+                                            <li><a className="dropdown-item" href="#">Статистика</a></li>
+                                            <li><a className="dropdown-item" href="#">Повідомлення</a></li>
+                                            <li><a className="dropdown-item" href="#">Служба підтримки</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href={"/"} onClick={exit}>Выход</a>
                             </div>
-
-                            <FormControl
-                                type="search"
-                                placeholder="Поиск"
-                                className={styles.search}
-                                aria-label="Найти"
-                            />
-                            <Button className={styles.searchButton} variant="outline-success">Искать</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>

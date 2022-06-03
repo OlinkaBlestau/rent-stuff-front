@@ -13,8 +13,9 @@ const ProfileAdmin = () => {
     useEffect(() => {
         const getUser = async () => {
             let store = localStorage.getItem('authToken')
-            const res = await fetchUser(params.id, store).then(resolve => resolve.data);
-            const user = res.data
+            let id = localStorage.getItem('id')
+            const res = await fetchUser(id, store).then(resolve => resolve.data);
+            const user = res[0]
             setUser(user)
 
         }
@@ -26,47 +27,28 @@ const ProfileAdmin = () => {
             <div className="dataInfo">
                 <div className="viewing">
                     <div className="box">
-                        <div className="infobox">
-                            <h2>Данные об админе</h2>
-                            <div className="data">
-                                <p className="dataTitle">Имя</p>
-                                <p>Здесь имя</p>
+                        <div className= {styles.infobox}>
+                            <h2>Ваші персональні данні</h2>
+                            <div className= {styles.data}>
+                                <p className= {styles.dataTitle}>Ім'я</p>
+                                <p className= {styles.dataInfo}> {user.name}</p>
                             </div>
-                            <div className="data">
-                                <p className="dataTitle">Фамилия</p>
-                                <p>Здесь фамилия</p>
+                            <div className= {styles.data}>
+                                <p className= {styles.dataTitle}>Прізвіще</p>
+                                <p className= {styles.dataInfo}>{user.surname}</p>
                             </div>
-                            <div className="data">
-                                <p className="dataTitle">Номер телефона</p>
-                                <p>numberOfPhone</p>
+                            <div className= {styles.data}>
+                                <p className= {styles.dataTitle}>Номер телефону</p>
+                                <p className= {styles.dataInfo}>{user.phone}</p>
                             </div>
-                            <div className="data">
-                                <p className="dataTitle">Email</p>
-                                <p>HereEmail</p>
+                            <div className= {styles.data}>
+                                <p className= {styles.dataTitle}>E-mail</p>
+                                <p className= {styles.dataInfo}>{user.email}</p>
                             </div>
-                            <a id="submitButton1" href="/userChangeData" className="btn btn-primary">Изменить данные о пользователи</a>
-                        </div>
-                    </div>
-                    <div className="box">
-                        <div className="infobox">
-                            <h2>Данные о приюте</h2>
-                            <div className="data">
-                                <p className="dataTitle">Название приюта</p>
-                                <p>Здесь название приюта</p>
-                            </div>
-                            <div className="data">
-                                <p className="dataTitle">Адресс</p>
-                                <p>Здесь адресс</p>
-                            </div>
-                            <div className="data">
-                                <p className="dataTitle">Номер телефона</p>
-                                <p>Здесь номер</p>
-                            </div>
-                            <div className="data">
-                                <p className="dataTitle">Email</p>
-                                <p>Здесь email</p>
-                            </div>
-                            <a id="submitButton" href="/editShelter" type="submit" className="btn btn-primary">Изменить данные о приюте</a>
+
+                            <button className={styles.btn}>
+                                <a href={`/changeUser/`}>Редагувати</a>
+                            </button>
                         </div>
                     </div>
                 </div>

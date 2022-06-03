@@ -1,1 +1,45 @@
+.infobox{
+    margin: 50px auto;
+    width: 600px;
+    height: 710px;
+    padding: 40px 20px;
+    background:#E3DBDA;
+    border-radius: 15px;
+    position: relative;
+    text-shadow: none;
+}
+h2{
+    margin-bottom: 30px;
+    font-family: 'Rubik', sans-serif;
+}
+.dataTitle{
+    font-family: 'Poiret One', cursive;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-bottom: 18px;
+}
+
+.dataInfo{
+    font-family: 'Rubik', sans-serif;
+    font-size: 25px;
+}
+
+.btn{
+    margin-top: 20px;
+    font-size: 26px;
+    background-color: #C7B9B7;
+    outline: none;
+    border-radius: 10px;
+
+
+}
+.btn a{
+    text-decoration:none;
+    color: black;
+}
+.btn a:hover{
+    text-decoration: underline;
+    color: #422030;
+}
+
 

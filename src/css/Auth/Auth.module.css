@@ -1,0 +1,76 @@
+.formAuth {
+    margin: 60px auto;
+    max-width: 580px;
+    padding: 40px 20px;
+    background:#E3DBDA;
+    border-radius: 40px;
+    position: relative;
+    text-shadow: none;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+    margin-bottom: 90px;
+}
+
+.formAuth h2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 185px;
+    margin-bottom: 50px;
+}
+
+.label {
+    margin-top: -5px;
+}
+
+.input {
+    border: none;
+    background-color: rgba(255,255,255,0);
+    border-bottom: solid black;
+    left: 25px;
+    position: relative;
+    width: 350px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 24px;
+    font-weight: 350;
+}
+
+.formData {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px 18px;
+
+}
+
+label {
+    color:#2C3531;
+    top:5px;
+    position: relative;
+    right: 10px;
+    font-family: 'Poiret One', cursive;
+    font-size: 24px;
+}
+
+.btn {
+    margin-top: 45px;
+    position:relative;
+    margin-left:202px;
+    width: 27%;
+    height: 45px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    border-radius:3px;
+    background-color: #C7B9B7;
+    border: none;
+}
+.account:hover {
+    text-decoration: underline;
+    color: #422030;
+}
+.account {
+    margin-left: 203px;
+    top: 20px;
+    font-size: 20px;
+    position:relative;
+    font-family: 'Poiret One', cursive;
+    color:#000;
+}

@@ -3,6 +3,7 @@ import styles from '../../css/Auth/Registration.module.css'
 import {fetchCreateUser, shelters} from "../../api";
 
 export default function Registration() {
+    const [roleValue, setRoleValue] = useState('')
     const [register, setRegister] = useState(() => {
         return {
             name: "",
@@ -23,7 +24,6 @@ export default function Registration() {
     }
 
 
-
     const linkStyle = {
         color: 'black',
         marginLeft: '240px',
@@ -33,7 +33,6 @@ export default function Registration() {
     const submit = event => {
         event.preventDefault();
 
-        //shelters().then(response => console.log(response.data));
 
         fetchCreateUser({
             name: register.name,
@@ -41,6 +40,7 @@ export default function Registration() {
             phone: register.phone,
             email: register.email,
             password: register.password,
+            role: roleValue
         }).then(() => {
             alert('Вы успешно зарегестрированы')
             window.location.replace('/login');
@@ -53,9 +53,11 @@ export default function Registration() {
     return (
         <div className={styles.formRegister}>
             <form onSubmit={submit} className={styles.form}>
-                <h2>Регистрация</h2>
+                <h2>Реєстрація</h2>
                 <div className={styles.formData}>
-                    <label htmlFor="username">Имя</label>
+                    <label htmlFor="username">
+                        Ім'я:
+                    </label>
                     <input
                         type="text"
                         id="name"
@@ -67,7 +69,7 @@ export default function Registration() {
                 </div>
                 <div className={styles.formData}>
                     <label htmlFor="surname">
-                        Фамилия:
+                        Прізвище:
                     </label>
                     <input
                         type="text"
@@ -80,7 +82,7 @@ export default function Registration() {
                     />
                 </div>
                 <div className={styles.formData}>
-                    <label htmlFor="email">Почта:</label>
+                    <label htmlFor="email">E-mail:</label>
                     <input
                         type="email"
                         id="email"
@@ -92,7 +94,7 @@ export default function Registration() {
                     />
                 </div>
                 <div className={styles.formData}>
-                    <label htmlFor="phone"> Номер телефона: </label>
+                    <label htmlFor="phone">Номер телефону: </label>
                     <input
                         type="text"
                         id="phone"
@@ -116,9 +118,16 @@ export default function Registration() {
 
                     />
                 </div>
-                <button className={styles.btn}>Зарегистрироваться</button>
-                <p className={styles.account}>Уже есть аккаунт?</p>
-                <a href={"/login"} style={linkStyle}>Войти</a>
+                <div className={styles.formData}>
+                    <label htmlFor="">Роль</label>
+                    <select value={roleValue} onChange={(event) => setRoleValue(event.target.value)}>
+                        <option value="landlord">Орендодавець</option>
+                        <option value="renting">Орендатор</option>
+                    </select>
+
+                </div>
+                <button className={styles.btn}>Зареєструватися</button>
+                <a href={"/login"} className={styles.account}>Вже маю акаунт</a>
             </form>
         </div>
     )

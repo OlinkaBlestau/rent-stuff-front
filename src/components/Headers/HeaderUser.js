@@ -20,11 +20,16 @@ const HeaderUser = () => {
         setId(store)
     }, [])
 
+    const dropA = {
+        position: 'relative',
+        top: '-10px',
+    }
+
     return (
         <div className={styles.wrapper}>
             <Navbar bg="#FFE552" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand className={styles.logo} href="#">СinemaWorld</Navbar.Brand>
+                    <nav className={styles.logo} href="#">RentStuff</nav>
                     <Navbar.Toggle aria-controls="navbarScroll"/>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -35,17 +40,20 @@ const HeaderUser = () => {
                         <Form className="d-flex">
                             <div className={styles.links}>
                                 <Link to={'/user/home/' + id}>Главная</Link>
-                                <a href={"/profileUser"}>Профиль</a>
-                                <button  className={styles.exitButton} onClick={exit}>Выход</button>
+                                <div className={styles.droplist}>
+                                    <div className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" style={dropA} href="#" id="navbarDropdown" role="button"
+                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                            Профіль
+                                        </a>
+                                        <ul className="dropdown-menu" id = "lang" aria-labelledby="navbarDropdown">
+                                            <li><a className="dropdown-item" href={"/profileUser"}>Мій профіль</a></li>
+                                            <li><a className="dropdown-item" href="#">Служба підтримки</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href={"/"} onClick={exit}>Выход</a>
                             </div>
-
-                            <FormControl
-                                type="search"
-                                placeholder="Поиск"
-                                className={styles.search}
-                                aria-label="Найти"
-                            />
-                            <Button className={styles.searchButton} variant="outline-success">Искать</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>

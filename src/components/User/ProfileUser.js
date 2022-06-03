@@ -13,8 +13,10 @@ const ProfileUser = () => {
     useEffect(() => {
         const getUser = async () => {
             let store = localStorage.getItem('authToken')
-            const res = await fetchUser(params.id, store).then(resolve => resolve.data);
-            const user = res.data
+            let id = localStorage.getItem('id')
+            const res = await fetchUser(id, store).then(resolve => resolve.data);
+            const user = res[0]
+            console.log(user)
             setUser(user)
 
         }
@@ -22,16 +24,38 @@ const ProfileUser = () => {
     }, [params.id])
 
     return (
-        <div className={styles.container}>
-            <h2>Профиль</h2>
-            <div className={styles.userData}>
-                <p>{user.name}</p>
-                <p>{user.surname}</p>
-                <p>{user.email} </p>
-                <p>{user.phone}</p>
-                <button className={styles.changeUser}><a href={`/changeUser/` + params.id}>Изменить</a></button>
+    <div className="UserProfile text-center">
+        <div className="dataInfo">
+            <div className="viewing">
+                <div className="box">
+                    <div className= {styles.infobox}>
+                        <h2>Ваші персональні данні</h2>
+                        <div className= {styles.data}>
+                            <p className= {styles.dataTitle}>Ім'я</p>
+                            <p className= {styles.dataInfo}> {user.name}</p>
+                        </div>
+                        <div className= {styles.data}>
+                            <p className= {styles.dataTitle}>Прізвіще</p>
+                            <p className= {styles.dataInfo}>{user.surname}</p>
+                        </div>
+                        <div className= {styles.data}>
+                            <p className= {styles.dataTitle}>Номер телефону</p>
+                            <p className= {styles.dataInfo}>{user.phone}</p>
+                        </div>
+                        <div className= {styles.data}>
+                            <p className= {styles.dataTitle}>E-mail</p>
+                            <p className= {styles.dataInfo}>{user.email}</p>
+                        </div>
+
+                        <button className={styles.btn}>
+                            <a href={`/changeUser/`}>Редагувати</a>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
     )
 
 }

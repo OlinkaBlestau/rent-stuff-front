@@ -38,8 +38,8 @@ export default function Authorization() {
             localStorage.setItem('authTokenDate', new Date().toISOString());
             localStorage.setItem('role', res.data.role);
 
-            if(res.data.role === 'true'){
-                window.location.replace('/admin/home/' + res.data.userId);
+            if(res.data.role === 'landlord'){
+                window.location.replace('/createShop');
             }else{
                 window.location.replace('/user/home/' + res.data.userId);
 
@@ -51,11 +51,11 @@ export default function Authorization() {
             })
     }
     return (
-        <div className={styles.formRegister}>
+        <div className={styles.formAuth}>
             <form onSubmit={submit} className={styles.formA}>
-                <h2>Авторизация</h2>
+                <h2>Авторизація</h2>
                 <div className={styles.formData}>
-                    <label htmlFor="email">Почта:</label>
+                    <label htmlFor="email">E-mail</label>
                     <input
                         type="email"
                         id="email"
@@ -80,11 +80,10 @@ export default function Authorization() {
 
                     />
                 </div>
-                <button className={styles.button}>
-                    Войти
+                <button className={styles.btn}>
+                    Увійти
                 </button>
-                <p className={styles.accountReg}>Не зарегистрированы?</p>
-                <Link to="/register" style={linkStyle}>Зарегистрироваться</Link>
+                <a href={"/register"} className={styles.account}>Створити акаунт</a>
             </form>
         </div>
     )

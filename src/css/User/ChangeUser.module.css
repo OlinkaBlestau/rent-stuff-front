@@ -1,0 +1,43 @@
+.wrapper
+{
+    margin: 40px auto;
+    max-width: 650px;
+    padding: 40px 20px;
+    background:#E3DBDA;
+    border-radius: 40px;
+    position: relative;
+    text-shadow: none;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+    margin-bottom: 90px;
+}
+input{
+    border: none;
+    background-color: rgba(255,255,255,0);
+    border-bottom: solid black;
+    left: 105px;
+    display: flex;
+    position: relative;
+    width: 400px;
+    height: 72px;
+    font-weight: 300;
+}
+.wrapper h1{
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+.input{
+    font-size: 23px;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.btn{
+    margin-top: 60px;
+    font-size: 26px;
+    background-color: #C7B9B7;
+    outline: none;
+    border-radius: 10px;
+    margin-left: 240px;
+
+}
+
