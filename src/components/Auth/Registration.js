@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import styles from '../../css/Auth/Registration.module.css'
 import {fetchCreateUser, shelters} from "../../api";
+import {t} from "i18next";
+import {useTranslation} from "react-i18next";
 
 export default function Registration() {
     const [roleValue, setRoleValue] = useState('')
@@ -23,6 +25,7 @@ export default function Registration() {
         })
     }
 
+    const { t } = useTranslation();
 
     const linkStyle = {
         color: 'black',
@@ -53,10 +56,10 @@ export default function Registration() {
     return (
         <div className={styles.formRegister}>
             <form onSubmit={submit} className={styles.form}>
-                <h2>Реєстрація</h2>
+                <h2>{t('registrationPage.titleRegistration')}</h2>
                 <div className={styles.formData}>
                     <label htmlFor="username">
-                        Ім'я:
+                        {t('registrationPage.name')}
                     </label>
                     <input
                         type="text"
@@ -69,7 +72,7 @@ export default function Registration() {
                 </div>
                 <div className={styles.formData}>
                     <label htmlFor="surname">
-                        Прізвище:
+                        {t('registrationPage.surname')}
                     </label>
                     <input
                         type="text"
@@ -82,7 +85,7 @@ export default function Registration() {
                     />
                 </div>
                 <div className={styles.formData}>
-                    <label htmlFor="email">E-mail:</label>
+                    <label htmlFor="email">{t('registrationPage.email')}</label>
                     <input
                         type="email"
                         id="email"
@@ -94,7 +97,7 @@ export default function Registration() {
                     />
                 </div>
                 <div className={styles.formData}>
-                    <label htmlFor="phone">Номер телефону: </label>
+                    <label htmlFor="phone">{t('registrationPage.phone')}</label>
                     <input
                         type="text"
                         id="phone"
@@ -106,7 +109,7 @@ export default function Registration() {
                 </div>
                 <div className={styles.formData}>
                     <label htmlFor="password">
-                        Пароль:
+                        {t('registrationPage.password')}
                     </label>
                     <input
                         type="password"
@@ -119,15 +122,15 @@ export default function Registration() {
                     />
                 </div>
                 <div className={styles.formData}>
-                    <label htmlFor="">Роль</label>
+                    <label htmlFor="">{t('registrationPage.role')}</label>
                     <select value={roleValue} onChange={(event) => setRoleValue(event.target.value)}>
-                        <option value="landlord">Орендодавець</option>
-                        <option value="renting">Орендатор</option>
+                        <option value="landlord">{t('registrationPage.landlord')}</option>
+                        <option value="renting">{t('registrationPage.renting')}</option>
                     </select>
 
                 </div>
-                <button className={styles.btn}>Зареєструватися</button>
-                <a href={"/login"} className={styles.account}>Вже маю акаунт</a>
+                <button className={styles.btn}>{t('registrationPage.btnEnter')}</button>
+                <a href={"/login"} className={styles.account}>{t('registrationPage.account')}</a>
             </form>
         </div>
     )

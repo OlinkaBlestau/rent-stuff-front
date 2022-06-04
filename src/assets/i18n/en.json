@@ -1,0 +1,110 @@
+{
+    "unauth_header": {
+        "main": "Main",
+        "login": "Login"
+    },
+    "adminHeader": {
+        "main": "Main",
+        "allAnnouncement": "All Announcement",
+        "profile": "Profile",
+        "myProfile": "My Profile",
+        "myAnnouncement": "My announcement",
+        "statistic": "Statistic",
+        "notification": "Notification",
+        "supportServices": "Support services",
+        "logOut": "Log out"
+    },
+    "userHeader": {
+        "main": "Main",
+        "profile": "Profile",
+        "myProfile": "My Profile",
+        "supportServices": "Support services",
+        "logOut": "Log out"
+    },
+    "homePage": {
+        "serviceRent": "rental service",
+        "btnCreateAnnouncement": "Create announcement",
+        "titlePossibility": "What can be rented",
+        "fitnessEquipment": "Fitness equipment",
+        "homeEquipment": "Home appliances",
+        "photoVideo": "Photo and video",
+        "Equipment": "Tools",
+        "musicEquipment": "Musical instrument",
+        "sportVocation": "Sport and vocation",
+        "partyEquipment": "Holiday equipment",
+        "electronics": "Electronics",
+        "plays": "Games and consoles",
+        "titleInstruction": "How to rent",
+        "firstStrong": "The store owner places announcement - for free",
+        "secondStrong": "The tenant chooses the thing and clicks «Rent»",
+        "thirdStrong": "The owner confirms the agreement or refuses it.",
+        "fourthStrong": "The owner passes the thing.",
+        "firstText": "The guarantee of insurance will be a GPS tracker.",
+        "secondText": "Is it a free thing? The rental request will go to the landlord with the desired dates.",
+        "thirdText": "Or changes the term, price or thing and confirms the new conditions.",
+        "fourthText": "The landlord presses «Ad pause».",
+        "titleHelp": "Help",
+        "strongPlatform": "RentStuff",
+        "modernPlatform": " - a modern platform for renting and leasing a variety of things.",
+        "instruction": "Instructions for use:",
+        "li1": "Landlords are using the Web version.",
+        "li2": "Tenants use the Android version and partly the Web version.",
+        "li3": "he landlord must be registered and register the store to place ads.",
+        "li4": "In order to view and respond to advertisements, the tenant must be registered.",
+        "li5": "If you have any questions or problems, please contact ",
+        "a": "support services",
+        "titleContact": "Contacts",
+        "socialNet": "Social networks",
+        "ourEmail": "Our e-mail"
+    },
+    "authorizationPage": {
+        "titleAuthorization": "Authorization",
+        "email": "E-mail",
+        "password": "Password",
+        "btnEnter": "Enter",
+        "account": "Create account"
+    },
+    "registrationPage": {
+        "titleRegistration": "Registration",
+        "name": "Name:",
+        "surname": "Surname:",
+        "email": "E-mail:",
+        "phone": "Phone:",
+        "password": "Password:",
+        "role": "Role:",
+        "landlord": "Landlord",
+        "renting": "Renting",
+        "btnEnter": "Register",
+        "account": "Already registered"
+    },
+    "profile": {
+        "titleProfile": "Your personal data",
+        "name": "Name",
+        "surname": "Surname",
+        "email": "E-mail",
+        "phone": "Phone",
+        "role": "Role",
+        "btnEdit": "Edit"
+    },
+    "createShop": {
+        "titleShop": "Create a Store",
+        "name": "Name",
+        "email": "E-mail",
+        "phone": "Phone",
+        "address": "Address",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "description": "Description",
+        "btnCreate": "Create"
+    },
+
+    "editProfile": {
+        "editTitle": "Change of personal data",
+        "name": "Name",
+        "surname": "Surname",
+        "email": "E-mail",
+        "phone": "Phone",
+        "password": "Password",
+        "save": "Save"
+    }
+}

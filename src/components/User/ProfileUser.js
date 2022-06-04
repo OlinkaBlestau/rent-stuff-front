@@ -2,8 +2,10 @@ import React, {useEffect, useState} from 'react';
 import styles from '../../css/User/Profile.module.css'
 import {useParams} from "react-router-dom";
 import {fetchUser} from "../../api";
+import {useTranslation} from "react-i18next";
 
 require('moment/locale/ru');
+
 
 
 const ProfileUser = () => {
@@ -22,6 +24,7 @@ const ProfileUser = () => {
         }
         getUser().then(r => r.data)
     }, [params.id])
+    const { t } = useTranslation();
 
     return (
     <div className="UserProfile text-center">
@@ -29,26 +32,26 @@ const ProfileUser = () => {
             <div className="viewing">
                 <div className="box">
                     <div className= {styles.infobox}>
-                        <h2>Ваші персональні данні</h2>
+                        <h2>{t('profile.titleProfile')}</h2>
                         <div className= {styles.data}>
-                            <p className= {styles.dataTitle}>Ім'я</p>
+                            <p className= {styles.dataTitle}>{t('profile.name')}</p>
                             <p className= {styles.dataInfo}> {user.name}</p>
                         </div>
                         <div className= {styles.data}>
-                            <p className= {styles.dataTitle}>Прізвіще</p>
+                            <p className= {styles.dataTitle}>{t('profile.surname')}</p>
                             <p className= {styles.dataInfo}>{user.surname}</p>
                         </div>
                         <div className= {styles.data}>
-                            <p className= {styles.dataTitle}>Номер телефону</p>
+                            <p className= {styles.dataTitle}>{t('profile.phone')}</p>
                             <p className= {styles.dataInfo}>{user.phone}</p>
                         </div>
                         <div className= {styles.data}>
-                            <p className= {styles.dataTitle}>E-mail</p>
+                            <p className= {styles.dataTitle}>{t('profile.email')}</p>
                             <p className= {styles.dataInfo}>{user.email}</p>
                         </div>
 
                         <button className={styles.btn}>
-                            <a href={`/changeUser/`}>Редагувати</a>
+                            <a href={`/changeUser/`}>{t('profile.btnEdit')}</a>
                         </button>
                     </div>
                 </div>

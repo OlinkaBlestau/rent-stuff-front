@@ -24,4 +24,4 @@ export const fetchCreateUser = (params) => axios.post(`${process.env.REACT_APP_A
 export const fetchLoginUser = (params) => axios.post(`${process.env.REACT_APP_API_URL}/login`, params)
 export const shelters = () => axios.get(`${process.env.REACT_APP_API_URL}/shelters`, {headers: DEFAULT_HEADERS});
 export const fetchCategory = (authToken) => axios.get(`${process.env.REACT_APP_API_URL}/category/`, {headers: AUTH_HEADERS(authToken)});
-
+export const isUserHasShop = (authToken, userId) => axios.get(`${process.env.REACT_APP_API_URL}/shop/isUserHas/${userId}`, {headers: AUTH_HEADERS(authToken)});

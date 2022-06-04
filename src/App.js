@@ -13,12 +13,13 @@ import HeaderUser from "./components/Headers/HeaderUser";
 import Home from "./components/Home/Home";
 import Announcement from "./components/Admin/Announcement";
 import CreateShop from "./components/Admin/CreateShop";
-
+import i18n from "./i18n";
+import HomeAdmin from "./components/Admin/HomeAdmin";
+import HomeUser from "./components/User/HomeUser";
 
 function App() {
     const [storage, setStorage] = useState([])
     const [role, setRole] = useState([])
-
 
     useEffect(() => {
         let store = localStorage.getItem('authToken')
@@ -28,13 +29,12 @@ function App() {
 
     }, [])
 
-
     return (
         <div>
             {
                 storage === null && role !== undefined
                     ? <Header/>
-                    : (role === 'admin' ? <HeaderAdmin/> : <HeaderUser/>)
+                    : (role === 'landlord' ? <HeaderAdmin/> : <HeaderUser/>)
             }
             <Routes>
                 <Route path="/changeUser/" element={
@@ -65,6 +65,18 @@ function App() {
                     storage === null
                         ? <Authorization/>
                         : <Announcement/>
+                }/>
+
+                <Route path="/homeAdmin/:id" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <HomeAdmin/>
+                }/>
+
+                <Route path="/homeUser/:id" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <HomeUser/>
                 }/>
 
                 <Route path='/' element={<Home/>}/>

@@ -1,6 +1,6 @@
 .formRegister {
     margin: 60px auto;
-    max-width: 650px;
+    max-width: 695px;
     padding: 40px 20px;
     background:#E3DBDA;
     border-radius: 40px;
@@ -17,24 +17,22 @@
 
 
 .formRegister h2 {
-    font-family: 'Palanquin Dark', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 35px;
     margin-top: 10px;
     margin-left: 215px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
-.label {
-    margin-top: -5px;
-}
+
 
 .input {
     border: none;
     background-color: rgba(255,255,255,0);
     border-bottom: solid black;
-    left: 25px;
+    left: 60px;
     position: relative;
-    width: 300px;
+    width: 310px;
     font-family: 'Montserrat Alternates', sans-serif;
     font-size: 24px;
     font-weight: 350;
@@ -43,7 +41,7 @@
 .formData {
     display: flex;
     justify-content: space-between;
-    padding: 10px 50px 18px;
+    padding: 3px 50px 18px;
 
 }
 
@@ -57,12 +55,12 @@ label {
 }
 
 .btn {
-    margin-top: 45px;
+    margin-top: 55px;
     position:relative;
     margin-left:195px;
     width: 40%;
     height: 45px;
-    font-family: 'Palanquin Dark', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 24px;
     border-radius:3px;
     background-color: #C7B9B7;
@@ -79,6 +77,15 @@ label {
     position:relative;
     font-family: 'Poiret One', cursive;
     color:#000;
+}
+.formData select{
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+    position: relative;
+    top: 13px;
+    right: 50px;
+    width: 200px;
+    height: 60px;
 }
 
 

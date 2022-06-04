@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styles from '../../css/User/ChangeUser.module.css'
 import {useParams} from "react-router-dom";
 import {fetchUser, updateUser} from "../../api";
+import {Translation} from "react-i18next";
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()}/>;
@@ -68,77 +69,85 @@ class ChangeUser extends Component {
 
 
     render() {
-        return (
-            <div className={styles.wrapper}>
-                <h1>Зміна пересональних даних</h1>
-                <form onSubmit={this.submit} encType="multipart/form-data">
-                    <div>
-                        <div>
-                            <div className="name">
-                                <input className={styles.input} name='name'
-                                       id='name'
-                                       type="text"
-                                       value={(this.state.user === undefined) ? '' : this.state.user.name}
-                                       placeholder="Ім'я"
-                                       onClick={(item) => {
-                                           this.handleChanges("name", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("name", item)
-                                       }}
-                                />
-                                <input className={styles.input} name='surname'
-                                       id='surname'
-                                       type="text"
-                                       value={(this.state.user === undefined) ? '' : this.state.user.surname}
-                                       placeholder="Прізвище"
-                                       onClick={(item) => {
-                                           this.handleChanges("surname", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("surname", item)
-                                       }}
-                                />
-                                <input className={styles.input} name='email'
-                                       id='email'
-                                       type="text"
-                                       value={(this.state.user === undefined) ? '' : this.state.user.email}
-                                       placeholder="e-mail"
-                                       onClick={(item) => {
-                                           this.handleChanges("email", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("email", item)
-                                       }}
-                                />
-                                <input className={styles.input} name='phone'
-                                       id='phone'
-                                       type="text"
-                                       value={(this.state.user === undefined) ? '' : this.state.user.phone}
-                                       placeholder="Номер телефона"
-                                       onClick={(item) => {
-                                           this.handleChanges("phone", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("phone", item)
-                                       }}
-                                />
-                                <input className={styles.input} name='password'
-                                       id='password'
-                                       type="text"
-                                       value={this.state.password}
-                                       placeholder="Пароль"
-                                       onChange={this.changePassword}
-                                />
-                            </div>
 
+        return (
+            <Translation>
+                {
+                    (t, { i18n }) => {
+                        return <div className={styles.wrapper}>
+                            <h1>{t('editProfile.editTitle')}</h1>
+                            <form onSubmit={this.submit} encType="multipart/form-data">
+                                <div>
+                                    <div>
+                                        <div className="name">
+                                            <input className={styles.input} name='name'
+                                                   id='name'
+                                                   type="text"
+                                                   value={(this.state.user === undefined) ? '' : this.state.user.name}
+                                                   placeholder={t('editProfile.name')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("name", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("name", item)
+                                                   }}
+                                            />
+                                            <input className={styles.input} name='surname'
+                                                   id='surname'
+                                                   type="text"
+                                                   value={(this.state.user === undefined) ? '' : this.state.user.surname}
+                                                   placeholder={t('editProfile.surname')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("surname", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("surname", item)
+                                                   }}
+                                            />
+                                            <input className={styles.input} name='email'
+                                                   id='email'
+                                                   type="text"
+                                                   value={(this.state.user === undefined) ? '' : this.state.user.email}
+                                                   placeholder={t('editProfile.email')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("email", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("email", item)
+                                                   }}
+                                            />
+                                            <input className={styles.input} name='phone'
+                                                   id='phone'
+                                                   type="text"
+                                                   value={(this.state.user === undefined) ? '' : this.state.user.phone}
+                                                   placeholder={t('editProfile.phone')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("phone", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("phone", item)
+                                                   }}
+                                            />
+                                            <input className={styles.input} name='password'
+                                                   id='password'
+                                                   type="text"
+                                                   value={this.state.password}
+                                                   placeholder={t('editProfile.password')}
+                                                   onChange={this.changePassword}
+                                            />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <button className={styles.btn}>
+                                    {t('editProfile.save')}
+                                </button>
+                            </form>
                         </div>
-                    </div>
-                    <button className={styles.btn}>
-                        Зберігти
-                    </button>
-                </form>
-            </div>
+                    }
+                }
+            </Translation>
+
         )
     }
 

@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import styles from '../../css/Admin/CreateShop.module.css'
+
 import {
-     createShop
+    createShop
 } from "../../api";
 import {Link} from "react-router-dom";
+import {Translation} from "react-i18next";
+
 
 export default class CreateShop extends Component {
 
@@ -18,7 +21,9 @@ export default class CreateShop extends Component {
             longitude: '',
             latitude: '',
         };
+
         this.submit = this.submit.bind(this);
+
     }
 
 
@@ -34,7 +39,7 @@ export default class CreateShop extends Component {
             address: this.state.address,
             longitude: this.state.longitude,
             latitude: this.state.latitude,
-            user_id : id
+            user_id: id
         }
 
         console.log(shop)
@@ -45,6 +50,7 @@ export default class CreateShop extends Component {
             this.setState({valid: errors.response.data.errors});
         })
     }
+
 
     handleChanges = (field, value) => {
         let fieldString = `${field}`;
@@ -60,107 +66,111 @@ export default class CreateShop extends Component {
 
 
     render() {
+
         return (
-            <div className={styles.wrapper}>
-                <h1>Створити Магазин</h1>
-                <form onSubmit={this.submit} encType="multipart/form-data">
-                    <div className={styles.formElements}>
-                        <div className={styles.elementsRight}>
-                            <div className={styles.name}>
-                                <input name='name'
-                                       id='name'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.name}
-                                       placeholder="Назва магазину"
-                                       onClick={(item) => {
-                                           this.handleChanges("name", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("name", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.email}>
-                                <input name='email'
-                                       id='email'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.email}
-                                       placeholder="E-mail"
-                                       onClick={(item) => {
-                                           this.handleChanges("email", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("email", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.phone}>
-                                <input name='phone'
-                                       id='phone'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.phone}
-                                       placeholder="Телефон"
-                                       onClick={(item) => {
-                                           this.handleChanges("phone", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("phone", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.address}>
-                                <input name='address'
-                                       id='address'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.address}
-                                       placeholder="Адреса"
-                                       onClick={(item) => {
-                                           this.handleChanges("address", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("address", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.longitude}>
-                                <input name='longitude'
-                                       id='longitude'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.longitude}
-                                       placeholder="Довгота"
-                                       onClick={(item) => {
-                                           this.handleChanges("longitude", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("longitude", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.latitude}>
-                                <input name='latitude'
-                                       id='latitude'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.latitude}
-                                       placeholder="Широта"
-                                       onClick={(item) => {
-                                           this.handleChanges("latitude", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("latitude", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.description}>
+            <Translation>
+                {
+                    (t, {i18n}) => {
+                        return <div className={styles.wrapper}>
+                            <h1>{t('createShop.titleShop')}</h1>
+                            <form onSubmit={this.submit} encType="multipart/form-data">
+                                <div className={styles.formElements}>
+                                    <div className={styles.elementsRight}>
+                                        <div className={styles.name}>
+                                            <input name='name'
+                                                   id='name'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.name}
+                                                   placeholder={t('createShop.name')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("name", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("name", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.email}>
+                                            <input name='email'
+                                                   id='email'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.email}
+                                                   placeholder={t('createShop.email')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("email", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("email", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.phone}>
+                                            <input name='phone'
+                                                   id='phone'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.phone}
+                                                   placeholder={t('createShop.phone')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("phone", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("phone", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.address}>
+                                            <input name='address'
+                                                   id='address'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.address}
+                                                   placeholder={t('createShop.address')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("address", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("address", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.longitude}>
+                                            <input name='longitude'
+                                                   id='longitude'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.longitude}
+                                                   placeholder={t('createShop.longitude')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("longitude", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("longitude", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.latitude}>
+                                            <input name='latitude'
+                                                   id='latitude'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.latitude}
+                                                   placeholder={t('createShop.latitude')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("latitude", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("latitude", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.description}>
                                     <textarea name='description'
                                               id='description'
                                               value={this.state.description}
-                                              placeholder="Опис"
+                                              placeholder={t('createShop.description')}
                                               onClick={(item) => {
                                                   this.handleChanges("description", item)
                                               }}
@@ -168,14 +178,18 @@ export default class CreateShop extends Component {
                                                   this.handleChanges("description", item)
                                               }}
                                     />
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className={styles.btn} onClick={this.submit}>
+                                    {t('createShop.btnCreate')}
+                                </button>
+                            </form>
                         </div>
-                    </div>
-                    <button className={styles.btn} onClick={this.submit}>
-                        Стоврити магазин
-                    </button>
-                </form>
-            </div>
+                    }
+                }
+            </Translation>
+
 
         )
     }

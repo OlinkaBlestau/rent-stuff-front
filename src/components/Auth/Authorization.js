@@ -1,7 +1,9 @@
-import React, { useState} from 'react'
+import React, {useState} from 'react'
 import styles from '../../css/Auth/Auth.module.css'
 import {Link} from "react-router-dom";
-import {fetchLoginUser} from "../../api";
+import {fetchLoginUser, isUserHasShop} from "../../api";
+import {t} from "i18next";
+import {useTranslation} from "react-i18next";
 
 
 export default function Authorization() {
@@ -21,6 +23,7 @@ export default function Authorization() {
             }
         })
     }
+    const {t} = useTranslation();
 
     const linkStyle = {
         color: 'black',
@@ -38,12 +41,20 @@ export default function Authorization() {
             localStorage.setItem('authTokenDate', new Date().toISOString());
             localStorage.setItem('role', res.data.role);
 
-            if(res.data.role === 'landlord'){
-                window.location.replace('/createShop');
-            }else{
-                window.location.replace('/user/home/' + res.data.userId);
+            let isShelter = isUserHasShop(res.data.token, res.data.userId)
+                .then(isHas => {
+                    if (res.data.role === 'landlord') {
+                        if (isHas.data.has === true) {
+                            window.location.replace('/homeAdmin/' + res.data.userId);
+                        } else {
+                            window.location.replace('/createShop')
+                        }
+                    } else {
+                        window.location.replace('/homeUser/' + res.data.userId);
 
-            }
+                    }
+                })
+                .catch(errors => console.log(errors));
 
         })
             .catch(e => {
@@ -53,9 +64,9 @@ export default function Authorization() {
     return (
         <div className={styles.formAuth}>
             <form onSubmit={submit} className={styles.formA}>
-                <h2>Авторизація</h2>
+                <h2>{t('authorizationPage.titleAuthorization')}</h2>
                 <div className={styles.formData}>
-                    <label htmlFor="email">E-mail</label>
+                    <label htmlFor="email">{t('authorizationPage.email')}</label>
                     <input
                         type="email"
                         id="email"
@@ -68,7 +79,7 @@ export default function Authorization() {
                 </div>
                 <div className={styles.formData}>
                     <label htmlFor="password">
-                        Пароль:
+                        {t('authorizationPage.password')}
                     </label>
                     <input
                         type="password"
@@ -81,9 +92,9 @@ export default function Authorization() {
                     />
                 </div>
                 <button className={styles.btn}>
-                    Увійти
+                    {t('authorizationPage.btnEnter')}
                 </button>
-                <a href={"/register"} className={styles.account}>Створити акаунт</a>
+                <a href={"/register"} className={styles.account}>{t('authorizationPage.account')}</a>
             </form>
         </div>
     )

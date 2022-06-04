@@ -4,9 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import fon from "../../img/background.jpg";
 import "react-alice-carousel/lib/alice-carousel.css";
-// import { Carousel } from 'react-responsive-carousel';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-import AliceCarousel from 'react-alice-carousel'
+
 import homeToll from "../../img/homeTool.jpg";
 import tool from "../../img/tool.jpg";
 import play from "../../img/play.jpg";
@@ -15,36 +13,26 @@ import velo from "../../img/velo.jpg";
 import photo from "../../img/photo.jpg";
 import music from "../../img/music.jpg";
 import electronic from "../../img/electronic.jpg";
-import party from "../../img/party.jpg";
 
 import first from "../../img/icons8-рекламное-окно-64.png";
 import second from "../../img/icons8-поиск-недвижимости-80.png";
 import third from "../../img/icons8-accept-64.png";
 import fourth from "../../img/icons8-рукопожатие-50.png";
 
-
-import one from "../../img/1.png";
-import two from "../../img/2.png";
-import three from "../../img/3.png";
-import four from "../../img/4.png";
-
-
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
-
-// import required modules
 import {FreeMode, Pagination} from "swiper";
+import party from "../../img/party.jpg";
+import one from "../../img/1.png";
+import two from "../../img/2.png";
+import three from "../../img/3.png";
+import four from "../../img/4.png";
 import {useTranslation} from "react-i18next";
 
-// Import Swiper styles
-
-
-const Home = () => {
-
-
+const HomeUser = () => {
     const params = useParams();
     const { t } = useTranslation();
 
@@ -65,11 +53,7 @@ const Home = () => {
                 <h3 className={styles.h2}>
                     {t('homePage.serviceRent')}
                 </h3>
-                <div className={styles.add}>
-                    <button className={styles.button}>
-                        <a href={"/login"}>{t('homePage.btnCreateAnnouncement')}</a>
-                    </button>
-                </div>
+
             </div>
             <div>
                 <div className={styles.titleStuff}>
@@ -269,4 +253,4 @@ const Home = () => {
 
     )
 }
-export default Home;
+export default HomeUser;
