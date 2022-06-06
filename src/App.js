@@ -16,6 +16,9 @@ import CreateShop from "./components/Admin/CreateShop";
 import i18n from "./i18n";
 import HomeAdmin from "./components/Admin/HomeAdmin";
 import HomeUser from "./components/User/HomeUser";
+import ViewShop from "./components/Admin/ViewShop";
+import EditShop from "./components/Admin/EditShop";
+import EditAnnouncement from "./components/Admin/EditAnnouncement";
 
 function App() {
     const [storage, setStorage] = useState([])
@@ -77,6 +80,24 @@ function App() {
                     storage === null
                         ? <Authorization/>
                         : <HomeUser/>
+                }/>
+
+                <Route path="/viewShop/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <ViewShop/>
+                }/>
+
+                <Route path="/editShop/:id" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <EditShop/>
+                }/>
+
+                <Route path="/editAnnouncement/:id" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <EditAnnouncement/>
                 }/>
 
                 <Route path='/' element={<Home/>}/>

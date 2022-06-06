@@ -8,6 +8,7 @@
         "allAnnouncement": "All Announcement",
         "profile": "Profile",
         "myProfile": "My Profile",
+        "myShop": "My Shop",
         "myAnnouncement": "My announcement",
         "statistic": "Statistic",
         "notification": "Notification",
@@ -97,7 +98,6 @@
         "description": "Description",
         "btnCreate": "Create"
     },
-
     "editProfile": {
         "editTitle": "Change of personal data",
         "name": "Name",
@@ -106,5 +106,36 @@
         "phone": "Phone",
         "password": "Password",
         "save": "Save"
+    },
+    "viewShop": {
+        "titleShopEdit": "Information about your store",
+        "name": "Name",
+        "email": "E-mail",
+        "phone": "Phone",
+        "address": "Address",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "description": "Description",
+        "btnEdit": "Edit"
+    },
+    "editShop": {
+        "titleShopEdit": "Store editing",
+        "name": "Name",
+        "email": "E-mail",
+        "phone": "Phone",
+        "address": "Address",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "description": "Description",
+        "btnSave": "Save"
+    },
+
+    "createAnnouncement": {
+        "titleAnnouncement": "Create announcement",
+        "name": "Name",
+        "price": "Price",
+        "description": "Description",
+        "category": "Choose category",
+        "btnCreate": "Create"
     }
 }

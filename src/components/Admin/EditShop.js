@@ -1,57 +1,50 @@
 import React, {Component} from 'react';
-import styles from '../../css/Admin/CreateShop.module.css'
-
-import {
-    createShop
-} from "../../api";
-import {Link} from "react-router-dom";
+import styles from '../../css/Admin/EditShope.module.css'
+import {useParams} from "react-router-dom";
+import {fetchShop, fetchUser, updateShop, updateUser} from "../../api";
 import {Translation} from "react-i18next";
 
+function withParams(Component) {
+    return props => <Component {...props} params={useParams()}/>;
+}
 
-export default class CreateShop extends Component {
+class EditShop extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            description: "",
-            name: '',
-            phone: '',
-            address: '',
-            email: '',
-            longitude: '',
-            latitude: '',
-        };
+            id: '',
+            password: '',
 
+        }
         this.submit = this.submit.bind(this);
-
     }
 
+    componentDidMount() {
+
+        console.log(this.props.params.id)
+        this.setState({id:this.props.params.id})
+        fetchShop(this.props.params.id).then(resolve => {
+            this.setState({shop: resolve.data[0]})
+        });
+
+    }
 
     submit = event => {
         event.preventDefault();
         let store = localStorage.getItem('authToken')
-        let id = localStorage.getItem('id')
         let shop = {
-            name: this.state.name,
-            description: this.state.description,
-            phone: this.state.phone,
-            email: this.state.email,
-            address: this.state.address,
-            longitude: this.state.longitude,
-            latitude: this.state.latitude,
-            user_id: id
+            name: this.state.shop.name,
+            email: this.state.shop.email,
+            address: this.state.shop.address,
+            longitude: this.state.shop.longitude,
+            latitude: this.state.shop.latitude,
+            phone: this.state.shop.phone,
+            password: this.state.shop.password,
+            description: this.state.shop.description,
         }
-
-        console.log(shop)
-
-        createShop(shop, store).then(response => {
-            this.setState({response: response.data});
-        }).catch(errors => {
-            this.setState({valid: errors.response.data.errors});
-        })
+        updateShop(this.state.id, shop, store).then(response => (response));
     }
-
-
     handleChanges = (field, value) => {
         let fieldString = `${field}`;
         let input = document.getElementById(fieldString);
@@ -61,7 +54,18 @@ export default class CreateShop extends Component {
             input.style.border = '';
             input.style.borderBottom = '2px solid #000';
         }
-        this.setState({[fieldString]: value.target.value})
+        this.setState(prevState => ({
+            shop: {
+                ...prevState.shop,
+                [fieldString]: value.target.value
+            }
+        }));
+    }
+
+    changePassword = event => {
+        let state = this.state;
+        state.password = event.target.value
+        this.setState(state)
     }
 
 
@@ -72,17 +76,16 @@ export default class CreateShop extends Component {
                 {
                     (t, {i18n}) => {
                         return <div className={styles.wrapper}>
-                            <h1>{t('createShop.titleShop')}</h1>
+                            <h1>{t('editShop.titleShopEdit')}</h1>
                             <form onSubmit={this.submit} encType="multipart/form-data">
-                                <div className={styles.formElements}>
-                                    <div className={styles.elementsRight}>
-                                        <div className={styles.name}>
-                                            <input name='name'
+                                <div>
+                                    <div>
+                                        <div className="name">
+                                            <input className={styles.input} name='name'
                                                    id='name'
                                                    type="text"
-                                                   className={styles.input}
-                                                   value={this.state.name}
-                                                   placeholder={t('createShop.name')}
+                                                   value={(this.state.shop === undefined) ? '' : this.state.shop.name}
+                                                   placeholder={t('editShop.name')}
                                                    onClick={(item) => {
                                                        this.handleChanges("name", item)
                                                    }}
@@ -90,14 +93,11 @@ export default class CreateShop extends Component {
                                                        this.handleChanges("name", item)
                                                    }}
                                             />
-                                        </div>
-                                        <div className={styles.email}>
-                                            <input name='email'
+                                            <input className={styles.input} name='email'
                                                    id='email'
                                                    type="text"
-                                                   className={styles.input}
-                                                   value={this.state.email}
-                                                   placeholder={t('createShop.email')}
+                                                   value={(this.state.shop === undefined) ? '' : this.state.shop.email}
+                                                   placeholder={t('editShop.email')}
                                                    onClick={(item) => {
                                                        this.handleChanges("email", item)
                                                    }}
@@ -105,14 +105,11 @@ export default class CreateShop extends Component {
                                                        this.handleChanges("email", item)
                                                    }}
                                             />
-                                        </div>
-                                        <div className={styles.phone}>
-                                            <input name='phone'
+                                            <input className={styles.input} name='phone'
                                                    id='phone'
                                                    type="text"
-                                                   className={styles.input}
-                                                   value={this.state.phone}
-                                                   placeholder={t('createShop.phone')}
+                                                   value={(this.state.shop === undefined) ? '' : this.state.shop.phone}
+                                                   placeholder={t('editShop.phone')}
                                                    onClick={(item) => {
                                                        this.handleChanges("phone", item)
                                                    }}
@@ -120,14 +117,11 @@ export default class CreateShop extends Component {
                                                        this.handleChanges("phone", item)
                                                    }}
                                             />
-                                        </div>
-                                        <div className={styles.address}>
-                                            <input name='address'
+                                            <input className={styles.input} name='address'
                                                    id='address'
                                                    type="text"
-                                                   className={styles.input}
-                                                   value={this.state.address}
-                                                   placeholder={t('createShop.address')}
+                                                   value={(this.state.shop === undefined) ? '' : this.state.shop.address}
+                                                   placeholder={t('editShop.address')}
                                                    onClick={(item) => {
                                                        this.handleChanges("address", item)
                                                    }}
@@ -135,14 +129,11 @@ export default class CreateShop extends Component {
                                                        this.handleChanges("address", item)
                                                    }}
                                             />
-                                        </div>
-                                        <div className={styles.longitude}>
-                                            <input name='longitude'
+                                            <input className={styles.input} name='longitude'
                                                    id='longitude'
                                                    type="text"
-                                                   className={styles.input}
-                                                   value={this.state.longitude}
-                                                   placeholder={t('createShop.longitude')}
+                                                   value={(this.state.shop === undefined) ? '' : this.state.shop.longitude}
+                                                   placeholder={t('editShop.longitude')}
                                                    onClick={(item) => {
                                                        this.handleChanges("longitude", item)
                                                    }}
@@ -150,14 +141,11 @@ export default class CreateShop extends Component {
                                                        this.handleChanges("longitude", item)
                                                    }}
                                             />
-                                        </div>
-                                        <div className={styles.latitude}>
-                                            <input name='latitude'
+                                            <input className={styles.input} name='latitude'
                                                    id='latitude'
                                                    type="text"
-                                                   className={styles.input}
-                                                   value={this.state.latitude}
-                                                   placeholder={t('createShop.latitude')}
+                                                   value={(this.state.shop === undefined) ? '' : this.state.shop.latitude}
+                                                   placeholder={t('editShop.latitude')}
                                                    onClick={(item) => {
                                                        this.handleChanges("latitude", item)
                                                    }}
@@ -165,11 +153,10 @@ export default class CreateShop extends Component {
                                                        this.handleChanges("latitude", item)
                                                    }}
                                             />
-                                        </div>
-                                        <div className={styles.description}>
+
                                             <textarea name='description'
                                                       id='description'
-                                                      value={this.state.description}
+                                                      value={(this.state.shop === undefined) ? '' : this.state.shop.description}
                                                       placeholder={t('createShop.description')}
                                                       onClick={(item) => {
                                                           this.handleChanges("description", item)
@@ -178,11 +165,21 @@ export default class CreateShop extends Component {
                                                           this.handleChanges("description", item)
                                                       }}
                                             />
+
+                                            <input className={styles.input} name='password'
+                                                   id='password'
+                                                   type="text"
+                                                   value={this.state.password}
+                                                   placeholder={t('editProfile.password')}
+                                                   onChange={this.changePassword}
+                                            />
+
                                         </div>
+
                                     </div>
                                 </div>
-                                <button className={styles.btn} onClick={this.submit}>
-                                    {t('createShop.btnCreate')}
+                                <button className={styles.btn}>
+                                    {t('editProfile.save')}
                                 </button>
                             </form>
                         </div>
@@ -190,8 +187,11 @@ export default class CreateShop extends Component {
                 }
             </Translation>
 
-
         )
     }
 
 }
+
+export default withParams(EditShop);
+
+

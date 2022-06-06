@@ -8,6 +8,7 @@
         "allAnnouncement": "Всі оголошення",
         "profile": "Профіль",
         "myProfile": "Мій профіль",
+        "myShop": "Мій магазин",
         "myAnnouncement": "Мої оголошення",
         "statistic": "Статистика",
         "notification": "Повідомлення",
@@ -105,5 +106,36 @@
         "phone": "Номер телефону",
         "password": "Пароль",
         "save": "Зберігти"
+    },
+    "viewShop": {
+        "titleShopEdit": "Інформація про ваш магазин",
+        "name": "Назва",
+        "email": "E-mail",
+        "phone": "Телефон",
+        "address": "Адреса",
+        "longitude": "Довгота",
+        "latitude": "Широта",
+        "description": "Опис",
+        "btnEdit": "Редагувати"
+    },
+    "editShop": {
+        "titleShopEdit": "Редагування магазину",
+        "name": "Назва",
+        "email": "E-mail",
+        "phone": "Телефон",
+        "address": "Адреса",
+        "longitude": "Довгота",
+        "latitude": "Широта",
+        "description": "Опис",
+        "btnSave": "Зберегти"
+    },
+
+    "createAnnouncement": {
+        "titleAnnouncement": "Створити оголошення",
+        "name": "Назва",
+        "price": "Ціна за день",
+        "description": "Опис",
+        "category": "Оберіть категорію:",
+        "btnCreate": "Створити"
     }
 }

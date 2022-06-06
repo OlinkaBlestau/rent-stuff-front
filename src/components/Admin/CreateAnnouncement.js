@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import styles from '../../css/Admin/CreateAnnouncement.module.css'
 import {
     createAnnouncement,
-    createMovie, fetchCategory,
+    createMovie, fetchCategory, fetchUser,
 } from "../../api";
 import {Link} from "react-router-dom";
+import {Translation} from "react-i18next";
 
 export default class CreateAnnouncement extends Component {
 
@@ -22,6 +23,9 @@ export default class CreateAnnouncement extends Component {
 
     componentDidMount() {
         let store = localStorage.getItem('authToken')
+        let id = localStorage.getItem('id')
+
+        fetchUser(id).then(resolve => this.setState({idShop : resolve.data[0].shop.id}));
         fetchCategory(store).then(
             resolve => this.setState({categories: resolve.data.categories}))
 
@@ -36,7 +40,7 @@ export default class CreateAnnouncement extends Component {
             price: this.state.price,
             description: this.state.description,
             photo: this.state.photo,
-            shop_id: 1,
+            shop_id: this.state.idShop,
             category_id: this.state.category_id
         }
 
@@ -76,55 +80,58 @@ export default class CreateAnnouncement extends Component {
 
     render() {
         return (
-            <div className={styles.wrapper}>
-                <h1>Створити оголошення</h1>
-                <form onSubmit={this.submit} encType="multipart/form-data">
-                    <div className={styles.formElements}>
-                        <div className={styles.elementsRight}>
-                            <div className={styles.name}>
-                                <input name='name'
-                                       id='name'
-                                       type="text"
-                                       className={styles.input}
-                                       value={this.state.name}
-                                       placeholder="Назва"
-                                       onClick={(item) => {
-                                           this.handleChanges("name", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("name", item)
-                                       }}
-                                />
-                            </div>
-                            <div className={styles.price}>
-                                <input name='price'
-                                       type="number"
-                                       id='price'
-                                       placeholder="Ціна за день"
-                                       value={this.state.price}
-                                       className={styles.input}
-                                       onClick={(item) => {
-                                           this.handleChanges("price", item)
-                                       }}
-                                       onChange={(item) => {
-                                           this.handleChanges("price", item)
-                                       }}/>
+            <Translation>
+                {
+                    (t, { i18n }) => {
+                        return <div className={styles.wrapper}>
+                            <h1>{t('createAnnouncement.titleAnnouncement')}</h1>
+                            <form onSubmit={this.submit} encType="multipart/form-data">
+                                <div className={styles.formElements}>
+                                    <div className={styles.elementsRight}>
+                                        <div className={styles.name}>
+                                            <input name='name'
+                                                   id='name'
+                                                   type="text"
+                                                   className={styles.input}
+                                                   value={this.state.name}
+                                                   placeholder={t('createAnnouncement.name')}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("name", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("name", item)
+                                                   }}
+                                            />
+                                        </div>
+                                        <div className={styles.price}>
+                                            <input name='price'
+                                                   type="number"
+                                                   id='price'
+                                                   placeholder={t('createAnnouncement.price')}
+                                                   value={this.state.price}
+                                                   className={styles.input}
+                                                   onClick={(item) => {
+                                                       this.handleChanges("price", item)
+                                                   }}
+                                                   onChange={(item) => {
+                                                       this.handleChanges("price", item)
+                                                   }}/>
 
-                            </div>
+                                        </div>
 
-                            <div className={styles.file}>
-                                <input name="photo"
-                                       type="file"
-                                       placeholder="Фото"
-                                       className={styles.customFileInput}
-                                       onChange={(e) => this.onChange(e)}
-                                />
-                            </div>
-                            <div className={styles.description}>
+                                        <div className={styles.file}>
+                                            <input name="photo"
+                                                   type="file"
+                                                   placeholder="Фото"
+                                                   className={styles.customFileInput}
+                                                   onChange={(e) => this.onChange(e)}
+                                            />
+                                        </div>
+                                        <div className={styles.description}>
                                     <textarea name='description'
                                               id='description'
                                               value={this.state.description}
-                                              placeholder="Опис"
+                                              placeholder={t('createAnnouncement.description')}
                                               onClick={(item) => {
                                                   this.handleChanges("description", item)
                                               }}
@@ -132,35 +139,40 @@ export default class CreateAnnouncement extends Component {
                                                   this.handleChanges("description", item)
                                               }}
                                     />
-                            </div>
+                                        </div>
 
-                            <div className={styles.category}>
-                                <p>Оберіть категорію</p>
-                                <div className={styles.typeB} onChange={this.setCategory.bind(this)}>
-                                    {
-                                        this.state.categories === undefined
-                                            ? ''
-                                            : this.state.categories.map(el => {
-                                                return (
-                                                    <div className={styles.radioButton}>
-                                                        <label htmlFor={el.name}>{el.name}</label>
-                                                        <input key={el.id} id={el.name} type="radio" value={el.id}
-                                                               name="type"/>
-                                                    </div>
+                                        <div className={styles.category}>
+                                            <p>{t('createAnnouncement.category')}</p>
+                                            <div className={styles.typeB} onChange={this.setCategory.bind(this)}>
+                                                {
+                                                    this.state.categories === undefined
+                                                        ? ''
+                                                        : this.state.categories.map(el => {
+                                                            return (
+                                                                <div className={styles.radioButton}>
+                                                                    <label htmlFor={el.name}>{el.name}</label>
+                                                                    <input key={el.id} id={el.name} type="radio" value={el.id}
+                                                                           name="type"/>
+                                                                </div>
 
-                                                )
+                                                            )
 
-                                            })
-                                    }
+                                                        })
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <button className={styles.btn} onClick={this.submit}>
+                                    {t('createAnnouncement.btnCreate')}
+                                </button>
+                            </form>
                         </div>
-                    </div>
-                    <button className={styles.btn} onClick={this.submit}>
-                        Додати об'яву
-                    </button>
-                </form>
-            </div>
+
+                    }
+                }
+            </Translation>
+
 
         )
     }
