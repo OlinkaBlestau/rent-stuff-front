@@ -19,6 +19,9 @@ import HomeUser from "./components/User/HomeUser";
 import ViewShop from "./components/Admin/ViewShop";
 import EditShop from "./components/Admin/EditShop";
 import EditAnnouncement from "./components/Admin/EditAnnouncement";
+import AllAnnouncement from "./components/Admin/AllAnnouncement";
+import FullInfoAnnouncement from "./components/Admin/FullInfoAnnouncement";
+import Statistics from "./components/Admin/Statistics";
 
 function App() {
     const [storage, setStorage] = useState([])
@@ -98,6 +101,24 @@ function App() {
                     storage === null
                         ? <Authorization/>
                         : <EditAnnouncement/>
+                }/>
+
+                <Route path="/allAnnouncement/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <AllAnnouncement/>
+                }/>
+
+                <Route path="/fullInfoAnnouncement/:id" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <FullInfoAnnouncement/>
+                }/>
+
+                <Route path="/statistics/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <Statistics/>
                 }/>
 
                 <Route path='/' element={<Home/>}/>

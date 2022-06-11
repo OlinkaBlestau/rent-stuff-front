@@ -25,14 +25,14 @@ export default class CreateAnnouncement extends Component {
         let store = localStorage.getItem('authToken')
         let id = localStorage.getItem('id')
 
-        fetchUser(id).then(resolve => this.setState({idShop : resolve.data[0].shop.id}));
+        fetchUser(id).then(resolve => this.setState({idShop: resolve.data[0].shop.id}));
         fetchCategory(store).then(
             resolve => this.setState({categories: resolve.data.categories}))
 
     }
 
 
-    submit = event => {
+    submit = async event => {
         event.preventDefault();
         let store = localStorage.getItem('authToken')
         let thing = {
@@ -46,11 +46,8 @@ export default class CreateAnnouncement extends Component {
 
         console.log(thing)
 
-        createAnnouncement(thing, store).then(response => {
-            this.setState({response: response.data});
-        }).catch(errors => {
-            this.setState({valid: errors.response.data.errors});
-        })
+        await  createAnnouncement(thing, store);
+        window.location.replace('/adminAnnouncement/')
     }
 
     handleChanges = (field, value) => {
@@ -82,7 +79,7 @@ export default class CreateAnnouncement extends Component {
         return (
             <Translation>
                 {
-                    (t, { i18n }) => {
+                    (t, {i18n}) => {
                         return <div className={styles.wrapper}>
                             <h1>{t('createAnnouncement.titleAnnouncement')}</h1>
                             <form onSubmit={this.submit} encType="multipart/form-data">
@@ -128,7 +125,7 @@ export default class CreateAnnouncement extends Component {
                                             />
                                         </div>
                                         <div className={styles.description}>
-                                    <textarea name='description'
+                                        <textarea name='description'
                                               id='description'
                                               value={this.state.description}
                                               placeholder={t('createAnnouncement.description')}
@@ -138,7 +135,7 @@ export default class CreateAnnouncement extends Component {
                                               onChange={(item) => {
                                                   this.handleChanges("description", item)
                                               }}
-                                    />
+                                        />
                                         </div>
 
                                         <div className={styles.category}>
@@ -151,7 +148,8 @@ export default class CreateAnnouncement extends Component {
                                                             return (
                                                                 <div className={styles.radioButton}>
                                                                     <label htmlFor={el.name}>{el.name}</label>
-                                                                    <input key={el.id} id={el.name} type="radio" value={el.id}
+                                                                    <input key={el.id} id={el.name} type="radio"
+                                                                           value={el.id}
                                                                            name="type"/>
                                                                 </div>
 

@@ -1,6 +1,6 @@
 .infobox{
     margin: 50px auto;
-    width: 680px;
+    width: 705px;
     height: auto;
     padding: 40px 20px;
     background:#E3DBDA;
@@ -17,6 +17,7 @@ h2{
     font-family: 'Poiret One', cursive;
     font-size: 25px;
     display: flex;
+    margin-bottom: -10px;
     position: relative;
     top: 50px;
     left: 40px;
@@ -25,10 +26,13 @@ h2{
 .dataInfo{
     font-family: 'Rubik', sans-serif;
     font-size: 25px;
-    justify-content: left;
+    text-align: left;
     position: relative;
-    left: 280px;
+    top:24px;
+    left: 235px;
     display: flex;
+    width:400px;
+    word-break:break-all;
 
 }
 .btn{

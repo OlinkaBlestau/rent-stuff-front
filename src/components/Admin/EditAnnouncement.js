@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from '../../css/User/ChangeUser.module.css'
+import styles from '../../css/Admin/EditAnnouncement.module.css'
 import {useParams} from "react-router-dom";
 import {fetchCategory, fetchThing, fetchUser, updateThing, updateUser} from "../../api";
 import {Translation} from "react-i18next";
@@ -35,15 +35,16 @@ class EditAnnouncement extends Component {
 
     submit = event => {
         event.preventDefault();
+        console.log(this.state.category_id)
         let store = localStorage.getItem('authToken')
         let thing = {
             name: this.state.thing.name,
             price: this.state.thing.price,
             photo: this.state.thing.photo,
             description: this.state.thing.description,
-            category: this.state.category_id,
+            category_id: Number(this.state.category_id),
         }
-        updateThing(this.state.idThing, thing, store).then(response => (response));
+        updateThing(this.state.idThing, thing, store).then(response => window.location.replace('/adminAnnouncement'));
     }
     handleChanges = (field, value) => {
         let fieldString = `${field}`;
@@ -69,6 +70,7 @@ class EditAnnouncement extends Component {
     }
 
     setCategory(event) {
+        console.log(event.target.value)
         this.setState({category_id: event.target.value})
     }
 
@@ -93,11 +95,12 @@ class EditAnnouncement extends Component {
                 {
                     (t, {i18n}) => {
                         return <div className={styles.wrapper}>
-                            <h1>{t('editProfile.editTitle')}</h1>
+                            {/*<h1>{t('editProfile.editTitle')}</h1>*/}
+                            <h1>Edit Announcement</h1>
                             <form onSubmit={this.submit} encType="multipart/form-data">
-                                <div>
-                                    <div>
-                                        <div className="name">
+                                <div className={styles.formElements}>
+                                    <div className={styles.elementsRight}>
+                                        <div className={styles.name}>
                                             <input className={styles.input} name='name'
                                                    id='name'
                                                    type="text"
@@ -110,6 +113,8 @@ class EditAnnouncement extends Component {
                                                        this.handleChanges("name", item)
                                                    }}
                                             />
+                                        </div>
+                                        <div className={styles.price}>
                                             <input className={styles.input} name='price'
                                                    id='price'
                                                    type="text"
@@ -122,14 +127,16 @@ class EditAnnouncement extends Component {
                                                        this.handleChanges("price", item)
                                                    }}
                                             />
-                                            <div className={styles.file}>
-                                                <input name="photo"
-                                                       type="file"
-                                                       placeholder="Фото"
-                                                       className={styles.customFileInput}
-                                                       onChange={(e) => this.onChange(e)}
-                                                />
-                                            </div>
+                                        </div>
+                                        <div className={styles.file}>
+                                            <input name="photo"
+                                                   type="file"
+                                                   placeholder="Фото"
+                                                   className={styles.customFileInput}
+                                                   onChange={(e) => this.onChange(e)}
+                                            />
+                                        </div>
+                                        <div className={styles.description}>
                                             <textarea name='description'
                                                       id='description'
                                                       value={(this.state.thing === undefined) ? '' : this.state.thing.description}
@@ -141,29 +148,28 @@ class EditAnnouncement extends Component {
                                                           this.handleChanges("description", item)
                                                       }}
                                             />
-                                            <div className={styles.category}>
-                                                <p>Виберіть категорію</p>
-                                                <div className={styles.typeB} onChange={this.setCategory.bind(this)}>
-                                                    {
-                                                        this.state.category === undefined
-                                                            ? ''
-                                                            : this.state.category.categories.map(el => {
-                                                                return (
-                                                                    <div className={styles.radioButton}>
-                                                                        <label htmlFor={el.name}>{el.name}</label>
-                                                                        <input key={el.id} id={el.name} type="radio"
-                                                                               value={el.id}
-                                                                               name="type"/>
-                                                                    </div>
+                                        </div>
+                                        <div className={styles.category}>
+                                            <p>Виберіть категорію</p>
+                                            <div className={styles.typeB} onChange={this.setCategory.bind(this)}>
+                                                {
+                                                    this.state.category === undefined
+                                                        ? ''
+                                                        : this.state.category.categories.map(el => {
+                                                            return (
+                                                                <div className={styles.radioButton}>
+                                                                    <label htmlFor={el.name}>{el.name}</label>
+                                                                    <input key={el.id} id={el.name} type="radio"
+                                                                           value={el.id}
+                                                                           name="type"/>
+                                                                </div>
 
-                                                                )
+                                                            )
 
-                                                            })
-                                                    }
-                                                </div>
+                                                        })
+                                                }
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <button className={styles.btn}>

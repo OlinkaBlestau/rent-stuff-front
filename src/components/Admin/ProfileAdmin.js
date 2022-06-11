@@ -33,6 +33,11 @@ const ProfileAdmin = () => {
                         <div className= {styles.infobox}>
                             <h2>{t('profile.titleProfile')}</h2>
                             <div className= {styles.data}>
+                                <img className={styles.image}
+                                     src={process.env.REACT_APP_IMAGE_URL + user.photo}
+                                     alt=""/>
+                            </div>
+                            <div className= {styles.data}>
                                 <p className= {styles.dataTitle}>{t('profile.name')}</p>
                                 <p className= {styles.dataInfo}> {user.name}</p>
                             </div>
@@ -48,7 +53,6 @@ const ProfileAdmin = () => {
                                 <p className= {styles.dataTitle}>{t('profile.email')}</p>
                                 <p className= {styles.dataInfo}>{user.email}</p>
                             </div>
-
 
                             {/*<div className= {styles.data}>*/}
                             {/*    <p className= {styles.dataTitle}>{t('profile.role')}</p>*/}

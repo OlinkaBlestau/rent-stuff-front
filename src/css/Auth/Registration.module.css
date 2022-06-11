@@ -55,7 +55,7 @@ label {
 }
 
 .btn {
-    margin-top: 55px;
+    margin-top: 10px;
     position:relative;
     margin-left:195px;
     width: 40%;
@@ -87,5 +87,9 @@ label {
     width: 200px;
     height: 60px;
 }
+.file input{
+    border:none;
+    margin: 8px 130px 0;
 
+}
 

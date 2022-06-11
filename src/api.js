@@ -30,3 +30,6 @@ export const category = (id) => axios.get(`${process.env.REACT_APP_API_URL}/cate
 export const fetchThing = (id) => axios.get(`${process.env.REACT_APP_API_URL}/thing/${id}`);
 export const fetchThingByUser = (id) => axios.get(`${process.env.REACT_APP_API_URL}/thing/byUser/${id}`);
 export const deleteThing = (id) => axios.delete(`${process.env.REACT_APP_API_URL}/thing/${id}`);
+export const fetchAllThing = () => axios.get(`${process.env.REACT_APP_API_URL}/thing`);
+
+export const count = (params, authToken) => axios.get(`${process.env.REACT_APP_API_URL}/count`, {headers: AUTH_HEADERS(authToken)});

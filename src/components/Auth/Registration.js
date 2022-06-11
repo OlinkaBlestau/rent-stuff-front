@@ -13,8 +13,27 @@ export default function Registration() {
             phone: "",
             email: "",
             password: "",
+            photo: null,
         }
     })
+
+    const onChange = (e) => {
+        let files = e.target.files;
+        let name = files[0].name;
+        let reader = new FileReader(files)
+        reader.readAsDataURL(files[0]);
+        //console.log(files[0]);
+        reader.onload = (e) => {
+            console.log(e.target.result);
+            console.log(name)
+            setRegister(prev => {
+                return {
+                    ...prev,
+                    photo: name + "\\" + e.target.result
+                }
+            })
+        }
+    }
 
     const changeInputRegister = (field, event) => {
         setRegister(prev => {
@@ -25,7 +44,7 @@ export default function Registration() {
         })
     }
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const linkStyle = {
         color: 'black',
@@ -36,6 +55,7 @@ export default function Registration() {
     const submit = event => {
         event.preventDefault();
 
+        console.log((register));
 
         fetchCreateUser({
             name: register.name,
@@ -43,15 +63,18 @@ export default function Registration() {
             phone: register.phone,
             email: register.email,
             password: register.password,
+            photo: register.photo,
             role: roleValue
         }).then(() => {
             alert('Вы успешно зарегестрированы')
-            window.location.replace('/login');
+            // window.location.replace('/login');
         })
             .catch(e => {
                 alert(e)
 
             })
+
+
     }
     return (
         <div className={styles.formRegister}>
@@ -128,6 +151,20 @@ export default function Registration() {
                         <option value="renting">{t('registrationPage.renting')}</option>
                     </select>
 
+                </div>
+                <div className={styles.formData}>
+                    <label htmlFor="photo">
+                        {t('registrationPage.photo')}
+                    </label>
+                    <div className={styles.file}>
+                        <input name="photo"
+                               type="file"
+                               placeholder="Фото"
+                               defaultValue={register.photo}
+                               className={styles.customFileInput}
+                               onChange={(e) => onChange(e)}
+                        />
+                    </div>
                 </div>
                 <button className={styles.btn}>{t('registrationPage.btnEnter')}</button>
                 <a href={"/login"} className={styles.account}>{t('registrationPage.account')}</a>

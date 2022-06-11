@@ -51,7 +51,7 @@ const HeaderAdmin = () => {
                         <Form className="d-flex">
                             <div className={styles.links}>
                                 <Link to={'/homeAdmin/' + id}>{t('adminHeader.main')}</Link>
-                                <a href={"/"}>{t('adminHeader.allAnnouncement')}</a>
+                                <a href={"/allAnnouncement/"}>{t('adminHeader.allAnnouncement')}</a>
                                 <div className={styles.droplist}>
                                     <div className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" style={dropA} href="#" id="navbarDropdown" role="button"
@@ -62,7 +62,7 @@ const HeaderAdmin = () => {
                                             <li><a className="dropdown-item" href={"/profileAdmin"}>{t('adminHeader.myProfile')}</a></li>
                                             <li><a className="dropdown-item" href={"/viewShop/"}>{t('adminHeader.myShop')}</a></li>
                                             <li><a className="dropdown-item" href={"/adminAnnouncement"}>{t('adminHeader.myAnnouncement')}</a></li>
-                                            <li><a className="dropdown-item" href="#">{t('adminHeader.statistic')}</a></li>
+                                            <li><a className="dropdown-item" href={"/statistics/"}>{t('adminHeader.statistic')}</a></li>
                                             <li><a className="dropdown-item" href="#">{t('adminHeader.notification')}</a></li>
                                             <li><a className="dropdown-item" href="#">{t('adminHeader.supportServices')}</a></li>
                                         </ul>

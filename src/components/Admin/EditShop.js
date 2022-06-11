@@ -30,7 +30,7 @@ class EditShop extends Component {
 
     }
 
-    submit = event => {
+    submit = async event => {
         event.preventDefault();
         let store = localStorage.getItem('authToken')
         let shop = {
@@ -43,7 +43,8 @@ class EditShop extends Component {
             password: this.state.shop.password,
             description: this.state.shop.description,
         }
-        updateShop(this.state.id, shop, store).then(response => (response));
+         await updateShop(this.state.id, shop, store);
+         window.location.replace('/viewShop/')
     }
     handleChanges = (field, value) => {
         let fieldString = `${field}`;
@@ -166,7 +167,7 @@ class EditShop extends Component {
                                                       }}
                                             />
 
-                                            <input className={styles.input} name='password'
+                                            <input className={styles.password} name='password'
                                                    id='password'
                                                    type="text"
                                                    value={this.state.password}

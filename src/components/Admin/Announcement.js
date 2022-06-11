@@ -2,8 +2,11 @@ import styles from "../../css/Admin/Announcement.module.css";
 import React, {useEffect, useState} from 'react';
 import moment from "moment/moment";
 import {useParams} from "react-router-dom";
-import {category, deleteThing, fetchShop, fetchThing, fetchThingByUser, fetchUser} from "../../api";
+import {category, count, deleteThing, fetchShop, fetchThing, fetchThingByUser, fetchUser} from "../../api";
 import {useTranslation} from "react-i18next";
+import edit from "../../img/icons8-редактировать-50.png";
+import remove from "../../img/icons8-мусор-48.png";
+
 
 require('moment/locale/ru');
 
@@ -16,11 +19,11 @@ const Announcement = () => {
     useEffect(() => {
         const getShop = async () => {
             let id = localStorage.getItem('id')
-            const things = await fetchThingByUser(id)
+            let auth = localStorage.getItem('authToken')
+            const chart = await count(id, auth)
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
-            console.log(things[0].shop.thing)
-            setAnnouncements(things[0].shop.thing)
+            console.log(chart)
         }
         getShop()
     }, [params.id])
@@ -39,11 +42,11 @@ const Announcement = () => {
                     announcements.map((announcement) => {
                         return <div>
                             <div className={styles.wrapper}>
-                                <button>
-                                    <a href={`/editAnnouncement/`+ announcement.id}>Edit</a>
+                                <button className={styles.btnEdit}>
+                                    <a href={`/editAnnouncement/`+ announcement.id}><img id="image" src={edit} className={styles.imgBnt} alt="logo"/></a>
                                 </button>
-                                <button onClick={() => deleteAnnouncement(announcement.id)}>
-                                    delete
+                                <button onClick={() => deleteAnnouncement(announcement.id)} className={styles.btnDelete}>
+                                    <img id="image" className={styles.imgBnt} src={remove}  alt="logo"/>
                                 </button>
                                 <div>
                                     <img className={styles.image}

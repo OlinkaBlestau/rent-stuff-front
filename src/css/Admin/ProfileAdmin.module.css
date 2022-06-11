@@ -1,7 +1,7 @@
 .infobox{
     margin: 50px auto;
     width: 680px;
-    height: 630px;
+    height: 750px;
     padding: 40px 20px;
     background:#E3DBDA;
     border-radius: 15px;
@@ -17,26 +17,26 @@ h2{
     font-family: 'Poiret One', cursive;
     font-size: 25px;
     display: flex;
+    margin-bottom: -10px;
     position: relative;
     top: 50px;
-    left: 40px;
+    left: 75px;
 
 }
 
 .dataInfo{
     font-family: 'Rubik', sans-serif;
     font-size: 25px;
-    justify-content: left;
+    text-align: left;
     position: relative;
-    left: 280px;
+    top:24px;
+    left: 350px;
     display: flex;
-
-
 
 }
 
 .btn{
-    margin-top: 40px;
+    margin-top: 60px;
     font-size: 26px;
     background-color: #C7B9B7;
     outline: none;
@@ -52,6 +52,11 @@ h2{
 .btn a:hover{
     text-decoration: underline;
     color: #422030;
+}
+.image {
+    width: 50%;
+    height: auto;
+
 }
 
 

@@ -44,9 +44,7 @@ export default class CreateShop extends Component {
 
         console.log(shop)
 
-        createShop(shop, store).then(response => {
-            this.setState({response: response.data});
-        }).catch(errors => {
+        createShop(shop, store).then(window.location.replace('/homeAdmin/' + id)).catch(errors => {
             this.setState({valid: errors.response.data.errors});
         })
     }

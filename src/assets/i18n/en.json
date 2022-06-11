@@ -73,6 +73,7 @@
         "phone": "Phone:",
         "password": "Password:",
         "role": "Role:",
+        "photo": "Photo:",
         "landlord": "Landlord",
         "renting": "Renting",
         "btnEnter": "Register",
