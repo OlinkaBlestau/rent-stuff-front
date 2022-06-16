@@ -138,5 +138,52 @@
         "description": "Опис",
         "category": "Оберіть категорію:",
         "btnCreate": "Створити"
+    },
+
+    "viewAnnouncement": {
+        "titleAnnouncement": "Мої оголошення",
+        "name": "Назва:",
+        "price": "Ціна:",
+        "description": "Опис:",
+        "category": "Категорія:",
+        "date" : "Дата створення:",
+        "btnCreate": "Створити оголошення"
+    },
+
+    "EditAnnouncement":{
+
+        "titleEditAnnouncement": "Редагування оголошення",
+        "name": "Назва",
+        "price": "Ціна за день",
+        "description": "Опис",
+        "category": "Оберіть категорію",
+        "btnSave": "Зберігти"
+    },
+
+    "allAnnouncement": {
+        "titleAnnouncement": "Всі оголошення",
+        "name": "Назва:",
+        "price": "Ціна:",
+        "date" : "Дата створення:"
+    },
+
+    "fullInfoAnnouncement": {
+
+        "titleAnnouncement": "Повна інформація про обране оголошення",
+        "name": "Назва:",
+        "price": "Ціна:",
+        "description": "Опис:",
+        "category": "категорія:",
+        "date" : "Дата:",
+        "nameShop": "Назва:",
+        "email": "E-mail:",
+        "phone": "Телефон:",
+        "address": "Адреса:",
+        "descriptionShop": "Опис:"
+
+    },
+
+    "statistics": {
+        "titleStatistics": "Графік кількості оголошень за місяць"
     }
 }

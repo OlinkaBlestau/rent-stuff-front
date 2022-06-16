@@ -3,7 +3,7 @@
 {
     float: left;
     display: block;
-    margin: 40px 300px 50px 135px;
+    margin: 40px 200px 50px 135px;
     width: 650px;
     padding: 40px 20px;
     background:#E3DBDA;
@@ -44,11 +44,32 @@
     float: left;
     display: block;
     margin: 40px auto;
-    width: 650px;
-    padding: 40px 20px;
+    width: 675px;
+    padding: 40px 15px;
     background:#E3DBDA;
     border-radius: 40px;
     position: relative;
     text-shadow: none;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+}
+.dataTitle1{
+    font-family: 'Poiret One', cursive;
+    font-size: 23px;
+    display: flex;
+    margin-bottom: -10px;
+    position: relative;
+    left: 40px;
+
+}
+.dataInfo1{
+    font-family: 'Rubik', sans-serif;
+    font-size: 23px;
+    text-align: left;
+    position: relative;
+    left: 210px;
+    display: flex;
+    width:400px;
+    word-break:break-all;
+    bottom: 23px;
+
 }

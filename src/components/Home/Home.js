@@ -244,7 +244,7 @@ const Home = () => {
                         <li>{t('homePage.li2')}</li>
                         <li>{t('homePage.li3')}</li>
                         <li>{t('homePage.li4')}</li>
-                        <li>{t('homePage.li5')} <a href="#" className="chat">{t('homePage.a')}</a>.</li>
+                        {/*<li>{t('homePage.li5')} <a href="#" className="chat">{t('homePage.a')}</a>.</li>*/}
                     </ul>
                 </div>
             </div>

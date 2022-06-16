@@ -16,14 +16,26 @@ const Announcement = () => {
     const [announcements, setAnnouncements] = useState([])
 
 
+    // useEffect(() => {
+    //     const getShop = async () => {
+    //         let id = localStorage.getItem('id')
+    //         let auth = localStorage.getItem('authToken')
+    //         const chart = await count(id, auth)
+    //             .then(response => response.data)
+    //             .catch(errors => console.log(errors))
+    //         console.log(chart)
+    //     }
+    //     getShop()
+    // }, [params.id])
+
     useEffect(() => {
         const getShop = async () => {
             let id = localStorage.getItem('id')
-            let auth = localStorage.getItem('authToken')
-            const chart = await count(id, auth)
+            const things = await fetchThingByUser(id)
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
-            console.log(chart)
+            console.log(things[0].shop.thing)
+            setAnnouncements(things[0].shop.thing)
         }
         getShop()
     }, [params.id])
@@ -33,10 +45,12 @@ const Announcement = () => {
         console.log(id)
         deleteThing(id).then(() => window.location.reload())
     }
+
+
     const {t} = useTranslation();
     return (
         <div className={styles.pageAnnouncement}>
-            <h1>Мої оголошення</h1>
+            <h1>{t('viewAnnouncement.titleAnnouncement')}</h1>
             <div className={styles.announcementEl}>
                 {
                     announcements.map((announcement) => {
@@ -54,23 +68,23 @@ const Announcement = () => {
                                          alt=""/>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Назва:</p>
+                                    <p className={styles.dataTitle}>{t('viewAnnouncement.name')}</p>
                                     <p className={styles.dataInfo}>{announcement.name}</p>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Ціна:</p>
+                                    <p className={styles.dataTitle}>{t('viewAnnouncement.price')}</p>
                                     <p className={styles.dataInfo}>{announcement.price}</p>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Категорія:</p>
+                                    <p className={styles.dataTitle}>{t('viewAnnouncement.category')}</p>
                                     <p className={styles.dataInfo}>{announcement.category.name}</p>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Опис:</p>
+                                    <p className={styles.dataTitle}>{t('viewAnnouncement.description')}</p>
                                     <p className={styles.dataInfo}>{announcement.description}</p>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Дата:</p>
+                                    <p className={styles.dataTitle}>{t('viewAnnouncement.date')}</p>
                                     <p className={styles.dataInfo}>{moment(announcements.created_at).format('ll')}</p>
                                 </div>
                             </div>
@@ -79,7 +93,7 @@ const Announcement = () => {
                 }
             </div>
             <button className={styles.btn}>
-                <a href={'/createAnnouncement'}>Створити оголошення </a>
+                <a href={'/createAnnouncement'}>{t('viewAnnouncement.btnCreate')}</a>
             </button>
         </div>
     )

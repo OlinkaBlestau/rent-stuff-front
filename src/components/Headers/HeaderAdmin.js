@@ -64,7 +64,7 @@ const HeaderAdmin = () => {
                                             <li><a className="dropdown-item" href={"/adminAnnouncement"}>{t('adminHeader.myAnnouncement')}</a></li>
                                             <li><a className="dropdown-item" href={"/statistics/"}>{t('adminHeader.statistic')}</a></li>
                                             <li><a className="dropdown-item" href="#">{t('adminHeader.notification')}</a></li>
-                                            <li><a className="dropdown-item" href="#">{t('adminHeader.supportServices')}</a></li>
+                                            {/*<li><a className="dropdown-item" href="#">{t('adminHeader.supportServices')}</a></li>*/}
                                         </ul>
                                     </div>
                                 </div>

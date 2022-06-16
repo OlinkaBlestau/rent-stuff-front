@@ -138,5 +138,52 @@
         "description": "Description",
         "category": "Choose category",
         "btnCreate": "Create"
+    },
+
+    "viewAnnouncement": {
+        "titleAnnouncement": "My announcement",
+        "name": "Name:",
+        "price": "Price:",
+        "description": "Description:",
+        "category": "Category:",
+        "date" : "Date:",
+        "btnCreate": "Create announcement"
+    },
+
+    "EditAnnouncement":{
+
+        "titleEditAnnouncement": "Edit announcement",
+        "name": "Name",
+        "price": "Price",
+        "description": "Description",
+        "category": "Choose Category",
+        "btnSave": "Save"
+    },
+
+    "allAnnouncement": {
+
+        "titleAnnouncement": "All announcement",
+        "name": "Name:",
+        "price": "Price:",
+        "date" : "Date:"
+    },
+
+    "fullInfoAnnouncement": {
+
+        "titleAnnouncement": "Full information about the selected announcement",
+        "name": "Name:",
+        "price": "Price:",
+        "description": "Description:",
+        "category": "Category:",
+        "date" : "Date:",
+        "nameShop": "Name",
+        "email": "E-mail",
+        "phone": "Phone",
+        "address": "Address",
+        "descriptionShop": "Description:"
+    },
+
+    "statistics": {
+        "titleStatistics": "Statistics"
     }
 }

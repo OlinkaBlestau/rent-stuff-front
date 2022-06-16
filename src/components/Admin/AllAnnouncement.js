@@ -70,7 +70,7 @@ const AllAnnouncement = () => {
 
     return (
         <div className={styles.pageAnnouncement}>
-            <h1>Всі оголошення</h1>
+            <h1>{t('allAnnouncement.titleAnnouncement')}</h1>
             <div className={styles.typeB} onChange={(event) => setFilterItem(event.target.value)}>
                 {
                     categories === undefined
@@ -112,11 +112,11 @@ const AllAnnouncement = () => {
                                          alt=""/>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Назва:</p>
+                                    <p className={styles.dataTitle}>{t('allAnnouncement.name')}</p>
                                     <p className={styles.dataInfo}>{announcement.name}</p>
                                 </div>
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Ціна:</p>
+                                    <p className={styles.dataTitle}>{t('allAnnouncement.price')}</p>
                                     <p className={styles.dataInfo}>{announcement.price}</p>
                                 </div>
                                 {/*<div className={styles.data}>*/}
@@ -128,8 +128,8 @@ const AllAnnouncement = () => {
                                 {/*    <p className={styles.dataInfo}>{announcement.description}</p>*/}
                                 {/*</div>*/}
                                 <div className={styles.data}>
-                                    <p className={styles.dataTitle}>Дата:</p>
-                                    <p className={styles.dataInfo}>{moment(announcements.created_at).format('ll')}</p>
+                                    <p className={styles.dataTitle}>{t('allAnnouncement.date')}</p>
+                                    <p className={styles.dataInfo}>{moment(announcement.created_at).format('ll')}</p>
                                 </div>
                             </div>
                         </div>

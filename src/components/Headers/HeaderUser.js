@@ -60,8 +60,8 @@ const HeaderUser = () => {
                                         <ul className="dropdown-menu" id="lang" aria-labelledby="navbarDropdown">
                                             <li><a className="dropdown-item"
                                                    href={"/profileUser"}>{t('userHeader.myProfile')}</a></li>
-                                            <li><a className="dropdown-item"
-                                                   href="#">{t('userHeader.supportServices')}</a></li>
+                                            {/*<li><a className="dropdown-item"*/}
+                                            {/*       href="#">{t('userHeader.supportServices')}</a></li>*/}
                                         </ul>
                                     </div>
                                 </div>

@@ -48,56 +48,38 @@ const Statistics = () => {
         return {
             labels: moment.months(),
             datasets: [{
-                label: "Huy",
+                label: "Announcement",
                 data: monthMoney,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.5)',
-                    'rgba(54, 162, 235, 0.5)',
-                    'rgba(255, 206, 86, 0.5)',
-                    'rgba(75, 192, 192, 0.5)',
-                    'rgba(153, 102, 255, 0.5)',
-                    'rgba(255, 159, 64, 0.5)',
-                    'rgba(39, 174, 96, 0.5)',
-                    'rgba(72, 52, 212, 0.5)',
-                    'rgba(253, 121, 168, 0.5)',
-                    'rgba(162, 155, 254, 0.5)',
-                    'rgba(83, 92, 104, 0.5)',
-                    'rgba(186, 220, 88, 0.5)'
+                    'rgba(199, 185, 183, 0.7)'
                 ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(39, 174, 96, 1.0)',
-                    'rgba(72, 52, 212, 1.0)',
-                    'rgba(253, 121, 168, 1.0)',
-                    'rgba(162, 155, 254, 1.0)',
-                    'rgba(83, 92, 104, 1.0)',
-                    'rgba(186, 220, 88, 1.0)'
-                ],
-                borderWidth: 2,
-                borderRadius: 80
+
+
             }]
         };
     }
     const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
     const bar = {
-        width: '80%',
-        backgroundColor: 'white',
-        margin: '0 auto',
+        width: '90%',
+        backgroundColor: '#F2F0F5',
+        margin: '50px auto',
         padding: '50px',
-        borderRadius: '50px'
+        borderRadius: '10px',
+
+
+
     }
     const h2 = {
-        fontFamily: 'Comfortaa cursive',
+        fontFamily: 'Rubik, sans-serif',
+        position : 'relative',
+        top: '20px',
+        textAlign: 'center'
+
 
     }
     return (
       <div>
-          <h2 style={h2}>{t('charts.chartAnimal')}</h2>
+          <h2 style={h2}>{t('statistics.titleStatistics')}</h2>
           <Bar style={bar} data={prepareAnimalChart()} options={options}/>
       </div>
     )

@@ -46,6 +46,7 @@ class EditAnnouncement extends Component {
         }
         updateThing(this.state.idThing, thing, store).then(response => window.location.replace('/adminAnnouncement'));
     }
+    
     handleChanges = (field, value) => {
         let fieldString = `${field}`;
         let input = document.getElementById(fieldString);
@@ -96,7 +97,7 @@ class EditAnnouncement extends Component {
                     (t, {i18n}) => {
                         return <div className={styles.wrapper}>
                             {/*<h1>{t('editProfile.editTitle')}</h1>*/}
-                            <h1>Edit Announcement</h1>
+                            <h1>{t('EditAnnouncement.titleEditAnnouncement')}</h1>
                             <form onSubmit={this.submit} encType="multipart/form-data">
                                 <div className={styles.formElements}>
                                     <div className={styles.elementsRight}>
@@ -105,7 +106,7 @@ class EditAnnouncement extends Component {
                                                    id='name'
                                                    type="text"
                                                    value={(this.state.thing === undefined) ? '' : this.state.thing.name}
-                                                   placeholder="Назва"
+                                                   placeholder={t('EditAnnouncement.name')}
                                                    onClick={(item) => {
                                                        this.handleChanges("name", item)
                                                    }}
@@ -119,7 +120,7 @@ class EditAnnouncement extends Component {
                                                    id='price'
                                                    type="text"
                                                    value={(this.state.thing === undefined) ? '' : this.state.thing.price}
-                                                   placeholder="Price"
+                                                   placeholder={t('EditAnnouncement.price')}
                                                    onClick={(item) => {
                                                        this.handleChanges("price", item)
                                                    }}
@@ -140,7 +141,7 @@ class EditAnnouncement extends Component {
                                             <textarea name='description'
                                                       id='description'
                                                       value={(this.state.thing === undefined) ? '' : this.state.thing.description}
-                                                      placeholder={t('createShop.description')}
+                                                      placeholder={t('EditAnnouncement.description')}
                                                       onClick={(item) => {
                                                           this.handleChanges("description", item)
                                                       }}
@@ -150,7 +151,7 @@ class EditAnnouncement extends Component {
                                             />
                                         </div>
                                         <div className={styles.category}>
-                                            <p>Виберіть категорію</p>
+                                            <p>{t('EditAnnouncement.category')}</p>
                                             <div className={styles.typeB} onChange={this.setCategory.bind(this)}>
                                                 {
                                                     this.state.category === undefined
@@ -173,7 +174,7 @@ class EditAnnouncement extends Component {
                                     </div>
                                 </div>
                                 <button className={styles.btn}>
-                                    {t('editProfile.save')}
+                                    {t('EditAnnouncement.btnSave')}
                                 </button>
                             </form>
                         </div>

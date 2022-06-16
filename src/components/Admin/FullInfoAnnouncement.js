@@ -31,7 +31,7 @@ const FullInfoAnnouncement = () => {
     const {t} = useTranslation();
     return (
         <div className={styles.pageAnnouncement}>
-            <h1>Повна інформація про обнару річ</h1>
+            <h1>{t('fullInfoAnnouncement.titleAnnouncement')}</h1>
             <div className={styles.announcementEl}>
                 <div>
                     <div className={styles.wrapper}>
@@ -41,23 +41,23 @@ const FullInfoAnnouncement = () => {
                                  alt=""/>
                         </div>
                         <div className={styles.data}>
-                            <p className={styles.dataTitle}>Назва:</p>
+                            <p className={styles.dataTitle}>{t('fullInfoAnnouncement.name')}</p>
                             <p className={styles.dataInfo}>{announcement.name }</p>
                         </div>
                         <div className={styles.data}>
-                            <p className={styles.dataTitle}>Ціна:</p>
+                            <p className={styles.dataTitle}>{t('fullInfoAnnouncement.price')}</p>
                             <p className={styles.dataInfo}>{announcement !== undefined ? announcement.price : ''}</p>
                         </div>
                         <div className={styles.data}>
-                            <p className={styles.dataTitle}>Категорія:</p>
+                            <p className={styles.dataTitle}>{t('fullInfoAnnouncement.category')}</p>
                             <p className={styles.dataInfo}>{announcement.category !== undefined ? announcement.category.name : ''}</p>
                         </div>
                         <div className={styles.data}>
-                            <p className={styles.dataTitle}>Опис:</p>
+                            <p className={styles.dataTitle}>{t('fullInfoAnnouncement.description')}</p>
                             <p className={styles.dataInfo}>{announcement !== undefined ? announcement.description : ''}</p>
                         </div>
                         <div className={styles.data}>
-                            <p className={styles.dataTitle}>Дата:</p>
+                            <p className={styles.dataTitle}>{t('fullInfoAnnouncement.date')}</p>
                             <p className={styles.dataInfo}>{moment(announcement.created_at).format('ll')}</p>
                         </div>
                     </div>
@@ -65,24 +65,24 @@ const FullInfoAnnouncement = () => {
             </div>
             <div className={styles.shopInfo}>
                 <div className={styles.data}>
-                    <p className={styles.dataTitle}>Назва:</p>
-                    <p className={styles.dataInfo}>{announcement.shop !== undefined ? announcement.shop.name : ''}</p>
+                    <p className={styles.dataTitle1}>{t('fullInfoAnnouncement.nameShop')}</p>
+                    <p className={styles.dataInfo1}>{announcement.shop !== undefined ? announcement.shop.name : ''}</p>
                 </div>
                 <div className={styles.data}>
-                    <p className={styles.dataTitle}>Адреса</p>
-                    <p className={styles.dataInfo}>{announcement.shop !== undefined ? announcement.shop.address : ''}</p>
+                    <p className={styles.dataTitle1}>{t('fullInfoAnnouncement.address')}</p>
+                    <p className={styles.dataInfo1}>{announcement.shop !== undefined ? announcement.shop.address : ''}</p>
                 </div>
                 <div className={styles.data}>
-                    <p className={styles.dataTitle}>Телефон</p>
-                    <p className={styles.dataInfo}>{announcement.shop !== undefined ? announcement.shop.phone : ''}</p>
+                    <p className={styles.dataTitle1}>{t('fullInfoAnnouncement.phone')}</p>
+                    <p className={styles.dataInfo1}>{announcement.shop !== undefined ? announcement.shop.phone : ''}</p>
                 </div>
                 <div className={styles.data}>
-                    <p className={styles.dataTitle}>Пошта</p>
-                    <p className={styles.dataInfo}>{announcement.shop !== undefined ? announcement.shop.email : ''}</p>
+                    <p className={styles.dataTitle1}>{t('fullInfoAnnouncement.email')}</p>
+                    <p className={styles.dataInfo1}>{announcement.shop !== undefined ? announcement.shop.email : ''}</p>
                 </div>
                 <div className={styles.data}>
-                    <p className={styles.dataTitle}>Опис</p>
-                    <p className={styles.dataInfo}>{announcement.shop !== undefined ? announcement.shop.description : ''}</p>
+                    <p className={styles.dataTitle1}>{t('fullInfoAnnouncement.descriptionShop')}</p>
+                    <p className={styles.dataInfo1}>{announcement.shop !== undefined ? announcement.shop.description : ''}</p>
                 </div>
             </div>
         </div>

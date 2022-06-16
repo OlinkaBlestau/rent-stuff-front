@@ -27,7 +27,7 @@ export default class CreateShop extends Component {
     }
 
 
-    submit = event => {
+    submit = async event => {
         event.preventDefault();
         let store = localStorage.getItem('authToken')
         let id = localStorage.getItem('id')
@@ -44,9 +44,11 @@ export default class CreateShop extends Component {
 
         console.log(shop)
 
-        createShop(shop, store).then(window.location.replace('/homeAdmin/' + id)).catch(errors => {
+        await createShop(shop, store).catch(errors => {
             this.setState({valid: errors.response.data.errors});
         })
+
+        window.location.replace('/homeAdmin/' + id)
     }
 
 

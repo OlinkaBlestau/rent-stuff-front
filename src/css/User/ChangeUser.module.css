@@ -32,12 +32,17 @@ input{
 }
 
 .btn{
-    margin-top: 60px;
+    margin-top: 20px;
     font-size: 26px;
     background-color: #C7B9B7;
     outline: none;
     border-radius: 10px;
     margin-left: 240px;
+
+}
+.file input{
+    border:none;
+    margin: 35px 2px 0;
 
 }
 

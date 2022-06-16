@@ -47,7 +47,7 @@ class ChangeUser extends Component {
         updateUser(this.state.id, user, store).then(isHas => {
                 let role = localStorage.getItem('role')
                 if (role === 'landlord') {
-                    window.location.replace('/homeAdmin/' + this.state.id);
+                    window.location.replace('/profileAdmin');
 
                 } else {
                     window.location.replace('/homeUser/' + this.state.id);
