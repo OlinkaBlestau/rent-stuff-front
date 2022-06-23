@@ -49,7 +49,7 @@ const HeaderUser = () => {
                         </Nav>
                         <Form className="d-flex">
                             <div className={styles.links}>
-                                <Link to={'/user/home/' + id}>{t('userHeader.main')}</Link>
+                                <Link to={'/homeUser/' + id}>{t('userHeader.main')}</Link>
                                 <div className={styles.droplist}>
                                     <div className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" style={dropA} href="#"
