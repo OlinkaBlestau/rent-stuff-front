@@ -17,7 +17,7 @@ const ProfileUser = () => {
             let store = localStorage.getItem('authToken')
             let id = localStorage.getItem('id')
             const res = await fetchUser(id, store).then(resolve => resolve.data);
-            const user = res[0]
+            const user = res
             console.log(user)
             setUser(user)
 

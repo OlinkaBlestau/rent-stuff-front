@@ -25,7 +25,7 @@ class EditAnnouncement extends Component {
         this.setState({idThing: id})
 
         fetchThing(id).then(resolve => {
-            this.setState({thing: resolve.data[0]})
+            this.setState({thing: resolve.data})
         });
 
         fetchCategory().then(resolve => {
@@ -156,7 +156,7 @@ class EditAnnouncement extends Component {
                                                 {
                                                     this.state.category === undefined
                                                         ? ''
-                                                        : this.state.category.categories.map(el => {
+                                                        : this.state.category.map(el => {
                                                             return (
                                                                 <div className={styles.radioButton}>
                                                                     <label htmlFor={el.name}>{el.name}</label>

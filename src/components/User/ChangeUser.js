@@ -27,7 +27,7 @@ class ChangeUser extends Component {
         let store = localStorage.getItem('authToken')
 
         fetchUser(id, store).then(resolve => {
-            this.setState({user: resolve.data[0]})
+            this.setState({user: resolve.data})
         });
 
     }

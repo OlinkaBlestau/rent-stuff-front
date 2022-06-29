@@ -16,7 +16,7 @@ const ViewShop = () => {
         const getShop = async () => {
             let id = localStorage.getItem('id')
             const res = await fetchUser(id).then(resolve => resolve.data);
-            const shop = res[0].shop
+            const shop = res.shop
             console.log(shop);
             setShop(shop)
 

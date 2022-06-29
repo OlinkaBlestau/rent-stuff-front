@@ -25,7 +25,7 @@ class EditShop extends Component {
         console.log(this.props.params.id)
         this.setState({id:this.props.params.id})
         fetchShop(this.props.params.id).then(resolve => {
-            this.setState({shop: resolve.data[0]})
+            this.setState({shop: resolve.data})
         });
 
     }

@@ -34,8 +34,8 @@ const Announcement = () => {
             const things = await fetchThingByUser(id)
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
-            console.log(things[0].shop.thing)
-            setAnnouncements(things[0].shop.thing)
+            console.log(things.shop.thing)
+            setAnnouncements(things.shop.thing)
         }
         getShop()
     }, [params.id])

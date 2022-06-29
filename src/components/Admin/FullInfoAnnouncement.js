@@ -21,8 +21,8 @@ const FullInfoAnnouncement = () => {
             const things = await fetchThing(params.id)
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
-            console.log(things[0])
-            setAnnouncement(things[0])
+            console.log(things)
+            setAnnouncement(things)
         }
         getShop()
     }, [params.id])

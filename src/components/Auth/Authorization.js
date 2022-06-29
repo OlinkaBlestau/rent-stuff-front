@@ -44,7 +44,7 @@ export default function Authorization() {
             let isShelter = isUserHasShop(res.data.token, res.data.userId)
                 .then(isHas => {
                     if (res.data.role === 'landlord') {
-                        if (isHas.data.has === true) {
+                        if (isHas.data === 1) {
                             window.location.replace('/homeAdmin/' + res.data.userId);
                         } else {
                             window.location.replace('/createShop')

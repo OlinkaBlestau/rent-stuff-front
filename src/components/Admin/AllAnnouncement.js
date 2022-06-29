@@ -37,15 +37,15 @@ const AllAnnouncement = () => {
             const things = await fetchAllThing()
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
-            setAnnouncements(things[0])
-            setFilterAnnouncements(things[0])
+            setAnnouncements(things)
+            setFilterAnnouncements(things)
         }
         const getCategories = async () => {
             const categories = await fetchCategory()
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
             console.log(categories)
-            setCategories(categories.categories)
+            setCategories(categories)
         }
         getShop()
         getCategories()

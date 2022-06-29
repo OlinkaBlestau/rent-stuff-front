@@ -22,8 +22,8 @@ const Statistics = () => {
             const things = await fetchThingByUser(id)
                 .then(response => response.data)
                 .catch(errors => console.log(errors))
-            console.log(things[0].shop.thing)
-            setThings(things[0].shop.thing)
+            console.log(things.shop.thing)
+            setThings(things.shop.thing)
 
         }
         getThing().then(r => r.data)

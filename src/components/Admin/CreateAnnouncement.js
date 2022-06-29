@@ -25,9 +25,9 @@ export default class CreateAnnouncement extends Component {
         let store = localStorage.getItem('authToken')
         let id = localStorage.getItem('id')
 
-        fetchUser(id).then(resolve => this.setState({idShop: resolve.data[0].shop.id}));
+        fetchUser(id).then(resolve => this.setState({idShop: resolve.data.shop.id}));
         fetchCategory(store).then(
-            resolve => this.setState({categories: resolve.data.categories}))
+            resolve => this.setState({categories: resolve.data}))
 
     }
 
