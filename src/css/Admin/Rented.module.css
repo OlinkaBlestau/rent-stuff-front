@@ -4,7 +4,7 @@
     float: left;
     display: block;
     margin: 40px 200px 50px 135px;
-    width: 685px;
+    width: 650px;
     padding: 40px 20px;
     background:#E3DBDA;
     border-radius: 40px;
@@ -22,8 +22,8 @@
 .image{
     width: 320px;
     height: auto;
-    left: 330px;
-    top: 150px;
+    left: 295px;
+    top: 170px;
     position: absolute;
 }
 

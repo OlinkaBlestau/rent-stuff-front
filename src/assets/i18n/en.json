@@ -185,5 +185,9 @@
 
     "statistics": {
         "titleStatistics": "Statistics"
+    },
+
+    "rented": {
+        "titleRented": "Rented stuff"
     }
 }

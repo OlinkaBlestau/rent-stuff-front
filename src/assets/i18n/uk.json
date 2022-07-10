@@ -185,5 +185,9 @@
 
     "statistics": {
         "titleStatistics": "Графік кількості оголошень за місяць"
+    },
+
+    "rented": {
+        "titleRented": "Орендовані речі"
     }
 }

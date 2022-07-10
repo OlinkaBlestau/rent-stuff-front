@@ -22,6 +22,7 @@ import EditAnnouncement from "./components/Admin/EditAnnouncement";
 import AllAnnouncement from "./components/Admin/AllAnnouncement";
 import FullInfoAnnouncement from "./components/Admin/FullInfoAnnouncement";
 import Statistics from "./components/Admin/Statistics";
+import Rented from "./components/Admin/Rented";
 
 function App() {
     const [storage, setStorage] = useState([])
@@ -119,6 +120,12 @@ function App() {
                     storage === null
                         ? <Authorization/>
                         : <Statistics/>
+                }/>
+
+                <Route path="/rented/" element={
+                    storage === null
+                        ? <Authorization/>
+                        : <Rented/>
                 }/>
 
                 <Route path='/' element={<Home/>}/>
